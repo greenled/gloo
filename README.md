@@ -1,7 +1,7 @@
 Gloo - A dead simple pastebin with many features
 ================================================
 
-Copyright 2013 by Juan Carlos Mejías Rodríguez
+Copyright 2013 by Juan Carlos Mejías Rodríguez (greenLED)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
