@@ -1,0 +1,26 @@
+@*
+This file is part of Gloo.
+
+Gloo is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Gloo is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
+*@
+
+@(pasteForm: Form[Paste])
+@import helper._
+
+@main("Nuevo recorte") {
+	@helper.form(action = routes.Application.save()) {
+		<textarea class="form-control" id="content" name="content" rows="17" autofocus></textarea>
+		<button id="save" type="submit">Guardar</button>
+	}
+}

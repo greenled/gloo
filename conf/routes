@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.add()
+POST    /                           controllers.Application.save()
+GET     /:key                       controllers.Application.view(key: String)
+GET     /raw/:key                   controllers.Application.raw(key: String)
+GET     /delete/:key                controllers.Application.delete(key: String)
+
+#Text API
+POST    /api/text/                  api.TextAPI.save()
+GET     /api/text/:key              api.TextAPI.raw(key: String)
+
+#Json API
+POST    /api/json/                  api.JsonAPI.save()
+GET     /api/json/:key              api.JsonAPI.raw(key: String)
+
+#Xml API
+POST    /api/xml/                  api.XmlAPI.save()
+GET     /api/xml/:key              api.XmlAPI.raw(key: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
