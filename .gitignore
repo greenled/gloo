@@ -6,6 +6,7 @@
 
 # Ignore Play! working directory #
 db
+dist
 eclipse
 lib
 log
@@ -20,3 +21,6 @@ test-result
 server.pid
 *.iml
 *.eml
+/out
+/RUNNING_PID
+data
