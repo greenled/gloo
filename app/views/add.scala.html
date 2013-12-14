@@ -19,8 +19,28 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 @import helper._
 
 @main("Nuevo recorte") {
-	@helper.form(action = routes.Application.save()) {
+	<nav id="nav-1">
+		<ul>
+			<li><a href="#" onClick="$('#send-text-form').submit();" class="nav-btn" ><i class="save"></i></a></li>
+		</ul>
+	</nav>
+	<content>
+	@helper.form(action = routes.Application.save(), 'id->"add-form") {
 		<textarea class="form-control" id="content" name="content" rows="17" autofocus></textarea>
-		<button id="save" type="submit">Guardar</button>
 	}
+	</content>
+	<nav id="nav-2" >
+		<ul>
+			<li><a class="nav-btn" href="#" ><i class="darken"></i></a></li>
+			<li><a class="nav-btn" href="#" ><i class="lighten"></i></a></li>
+			<li><a class="nav-btn" href="#" ><i class="eye"></i></a></li>
+			<li><a class="nav-btn" href="#" ><i class="help"></i></a></li>
+		</ul>
+	</nav>
+}(){
+<script>
+	$(document).ready(function() {
+		$.ctrl('S', function() {$('#add-form').submit();});
+	});
+</script>
 }
