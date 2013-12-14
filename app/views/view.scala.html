@@ -18,7 +18,29 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 @(key: String, content: String)
 
 @main(key) {
-
-    <pre id="content" >@content</pre>
-
-}()()
+	@*<nav id="nav-1">
+		<ul>
+			<li><a href="#" onClick="$('#send-text-form').submit();" class="nav-btn" ><i class="save"></i></a></li>
+		</ul>
+	</nav>
+	<content>*@
+		<pre class="prettyprint linenums" id="content" >@content</pre>
+	@*</content>
+	<nav id="nav-2" >
+		<ul>
+			<li><a class="nav-btn" href="#" ><i class="darken"></i></a></li>
+			<li><a class="nav-btn" href="#" ><i class="lighten"></i></a></li>
+			<li><a class="nav-btn" href="#" ><i class="eye"></i></a></li>
+			<li><a class="nav-btn" href="#" ><i class="help"></i></a></li>
+		</ul>
+	</nav>*@
+}{
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/prettify.min.css")">
+}{
+<script src="@routes.Assets.at("javascripts/prettify.min.js")" type="text/javascript"></script>
+<script>
+	$(document).ready(function() {
+		window.prettyPrint && prettyPrint();
+	});
+</script>
+}
