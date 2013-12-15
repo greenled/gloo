@@ -4,9 +4,13 @@ Gloo es un pastebin hecho con el objetivo de generar un tráfico de red mínimo.
 
 ## Funciones
 
-Además de las funciones básicas de cualquier pastebin (guardar texto y asociarlo a una URL), Gloo agrega las siguientes:
+Además de las funciones básicas de cualquier pastebin (guardar texto y asociarlo a una URL), Gloo agrega las siguientes (*por ahora*):
 
 - **Tres APIs** : Xml, Json y Texto plano
+
+## Feedback
+
+Si quieres mantenerte informado del progreso del desarrollo de Gloo deberías darte una vuelta por mi [[Twitter | http://twitter.com/greenled2013]].
 
 ## Instalación
 
