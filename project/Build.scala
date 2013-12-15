@@ -4,7 +4,7 @@ import play.Project._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "Gloo2"
+  val appName         = "Gloo"
   val appVersion      = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(

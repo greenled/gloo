@@ -12,6 +12,10 @@ Además de las funciones básicas de cualquier pastebin (guardar texto y asociar
 
 Si quieres mantenerte informado del progreso del desarrollo de Gloo deberías darte una vuelta por mi [[Twitter | http://twitter.com/greenled2013]].
 
+## Gloo en Heroku
+
+Actualmente estoy trabajando en cómo poner Gloo en [[Heroku | http://www.heroku.com ]] para que puedas verlo funcionando antes de instalarlo.
+
 ## Instalación
 
 ### 1 - Instalar Java Development Kit
@@ -33,12 +37,12 @@ Una vez tengas Java debes instalar el framework con que se desarrolla Gloo: [[Pl
 
 ### 3 - Compilar la aplicación
 
-El próximo paso es compilar Gloo. Para eso abre una terminal en el directorio raíz de la aplicación ejecuta lo siguiente:
+El próximo paso es compilar Gloo. Para eso abre una terminal en el directorio raíz de la aplicación y ejecuta lo siguiente:
 
 ```bash
 $ play dist
 ```
-El comando anterior creará un nuevo directorio "dist" con el archivo gloo2-1.0-SNAPSHOT.zip dentro. Este archivo contiene la aplicación compilada y lista para ejecutar.
+El comando anterior creará un nuevo directorio "dist" con el archivo gloo-1.0-SNAPSHOT.zip dentro. Este archivo contiene la aplicación compilada y lista para ejecutar.
 
 ### 4 - Ejecutar la aplicación
 
