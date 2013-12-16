@@ -17,10 +17,10 @@ Si quieres mantenerte informado del progreso del desarrollo de Gloo deberías da
 Hay varias formas en las que puedes ser útil en este proyecto, estas son algunas:
 
 - **Probar la aplicación en tu entrono de trabajo particular**: puede parecer trivial, pero esto ayudaría a detectar y corregir problemas de compatibilidad con navegadores, máquinas virtuales, servidores frontend, y un muchos otros que no imagino aún.
-- **Aportar nuevas ideas**: ¿Tienes una idea genial para Gloo? ¿No sabes cómo implementarla? No importa, contáctame y puede que sea lo próximo que le haga.
+- **Sugerir nuevas ideas**: ¿Tienes una idea genial para Gloo? ¿No sabes cómo implementarla? No importa, contáctame y puede que sea lo próximo que le haga.
 - **Escribir documentación**: Es importante tener una buena documentación que indique cómo sacarle el máximo provecho a Gloo. Los nuevos usuarios la agradecerán.
 - **Programar clientes que utilicen las APIs**: Esto es algo que pienso hacer cuando Gloo alcance un grado de terminación aceptable, pero tú pudieras hacerlo hoy mismo. Pronto ampliaré la documentación, indicando cómo utilizar las APIs.
-- **Escribir código**: No tienes que ser un veterano de Java para implementar nuevas funcionalidades, corregir bugs, etc. Serí útil que antes de pensar en escribir código para Gloo tuvieras una noción de cómo funciona [[Play 2 | http://www.playframework.org]]: su forma de hacer las cosas se aparta un poco de las "Buenas Prácticas" para programar en Java. Una parte importante del código son los casos de prueba, que puedes ayudar a implementar.
+- **Escribir código**: No tienes que ser un veterano de Java para implementar nuevas funcionalidades, corregir bugs, etc. Serí útil que antes de pensar en escribir código para Gloo tuvieras una noción de cómo funciona [[Play 2 | http://www.playframework.org]]: su forma de hacer las cosas se aparta un poco de las "Buenas Prácticas" para programar en Java. Una parte importante del código son los casos de prueba, que puedes ayudar a implementar. También puedes escribir nuevas APIs.
 
 Si te decides a colaborar escríbeme a juan.mejias [arroba] reduc.edu.cu.
 
