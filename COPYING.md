@@ -26,3 +26,7 @@ permission notices:
 - [jQuery]() 1.10.1 - JavaScript Library
   Copyright 2005, 2013 [jQuery Foundation, Inc.]()
   Dual licensed under the [MIT]() or [GPL Version 2]() licenses
+
+- [Google Code Prettify](http://code.google.com/p/google-code-prettify)
+  Copyright (pronto lo pongo)
+  Licensed under the [Apache License Version 2.0]()
