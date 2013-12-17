@@ -1,12 +1,14 @@
 # Gloo - Un pastebin realmente sencillo con muchas funciones
 
-Gloo es un pastebin hecho con el objetivo de generar un tráfico de red mínimo. Para lograrlo, ofrece diferentes APIs que permiten acceder al servicio sin necesidad de una interfaz gráfica HTML.
+Gloo es un pastebin hecho con el objetivo de generar un tráfico de red mínimo. Para lograrlo, ofrece una interfaz gráfica liviana y varias APIs que permiten acceder al servicio sin necesidad de una interfaz gráfica.
 
 ## Funciones
 
-Además de las funciones básicas de cualquier pastebin (guardar texto y asociarlo a una URL), Gloo agrega las siguientes (*por ahora*):
+Además de las funciones básicas de cualquier pastebin (guardar texto y asociarlo a una URL a través de una interfaz gráfica), Gloo agrega las siguientes (*por ahora*):
 
-- **Tres APIs** : Xml, Json y Texto plano
+- **API Xml**
+- **API Json**
+- **API texto plano**
 
 ## Feedback
 
@@ -47,7 +49,17 @@ Una vez tengas Java debes instalar el framework con que se desarrolla Gloo: [Pla
 
 > Actualmente estoy desarrollando Gloo con la versión 2.1.0 de Play.
 
-### 3 - Compilar la aplicación
+### 3 - Personalización (opcional)
+
+Recuerda que Gloo es Software Libre, y una de sus cuatro libertades te permite modificarlo y ajustarlo a tus necesidades.
+
+La forma más fácil de hacerlo es cambiando las hojas de estilos (CSS). Los CSS de Gloo están escritos en LESS, un lenguaje que al compilarlo se obtiene como resultado CSS. Son fácilmene identificables por su extensión `.less` y se encuentran en el directorio `app/assets/stylesheets`. Una de las ventajas de utilizar LESS en lugar de CSS desde un principio es que durante el desarrollo de la aplicación Play auto compila los `.less` y si se le pide también los *minifica*.
+
+Otra forma de personalizar Gloo es modificando sus archivos de vistas, que están en `app/views` y con extensión `.scala.html`. Estas vistas están compuestas por código Html y código Scala. Si has tenido experiencias previas con motores de plantillas Html encontrarás familiar la sintaxis. Te resultará útil leer la [documentación de Play acerca del motor de plantillas]()
+
+Una vez modifiques los `.less` o los `.scala.html` deberás compilar la aplicación.
+
+### 4 - Compilar la aplicación
 
 El próximo paso es compilar Gloo. Para eso abre una terminal en el directorio raíz de la aplicación y ejecuta lo siguiente:
 
@@ -56,7 +68,7 @@ $ play dist
 ```
 El comando anterior creará un nuevo directorio "dist" con el archivo gloo-1.0-SNAPSHOT.zip dentro. Este archivo contiene la aplicación compilada y lista para ejecutar.
 
-### 4 - Ejecutar la aplicación
+### 5 - Ejecutar la aplicación
 
 Una vez tengas el archivo con la aplicación compilada descomprímelo en un directorio en el que tengas permiso de lectura **y de escritura**:
 
