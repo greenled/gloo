@@ -4,8 +4,8 @@ Gloo - A dead simple pastebin with many features
 Copyright 2013 by Juan Carlos Mejías Rodríguez (greenLED)
 
 This program is free software; you can redistribute it and/or modify
-it under the terms of the [GNU Affero General Public License]() as published by
-the [Free Software Foundation](); either version 2 of the License, or
+it under the terms of the [GNU Affero General Public License](http://www.gnu.org/licenses/agpl.html) as published by
+the [Free Software Foundation](http://www.fsf.org/); either version 2 of the License, or
 (at your option) any latneer version.
 
 This program is distributed in the hope that it will be useful,
@@ -21,12 +21,12 @@ permission notices:
 
 - [Play](http://www.playframework.com) 2.1 - Java and Scala Web application framework
   Copyright 2012 [Typesafe](http://www.typesafe.com)
-  Licensed under the [Apache License Version 2.0]()
+  Licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-- [jQuery]() 1.10.1 - JavaScript Library
-  Copyright 2005, 2013 [jQuery Foundation, Inc.]()
-  Dual licensed under the [MIT]() or [GPL Version 2]() licenses
+- [jQuery](http://jquery.org/) 1.10.1 - JavaScript Library
+  Copyright 2005, 2013 [jQuery Foundation, Inc.](http://jquery.com/)
+  Dual licensed under the [MIT](http://opensource.org/licenses/mit-license.php) or [GPL Version 2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) licenses
 
 - [Google Code Prettify](http://code.google.com/p/google-code-prettify)
-  Copyright (pronto lo pongo)
-  Licensed under the [Apache License Version 2.0]()
+  Copyright (C) 2006 Google Inc.
+  Licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)

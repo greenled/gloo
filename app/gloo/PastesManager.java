@@ -32,7 +32,7 @@ public class PastesManager {
 	public static void save(String key, String content) {
 		Files.writeFile(getNewPasteFile(key), content);
 	}
-	
+
 	public static Option<String> load(String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined())
@@ -40,7 +40,7 @@ public class PastesManager {
 		else
 			return new None<String>();
 	}
-	
+
 	/*public static Option<List<String>> loadLines(String key) {
 		Option<InputStream> f = getPasteInputStream(key);
 		if (f.isDefined())
@@ -52,13 +52,13 @@ public class PastesManager {
 		else
 			return new None<List<String>>();
 	}*/
-	
+
 	public static void delete(String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined())
 			f.get().delete();
 	}
-	
+
 	public static Option<File> getPasteFile (String key) {
 		File f = new File(getPastesDir().getPath() + File.separator + key);
 		if (f.exists())
@@ -66,7 +66,7 @@ public class PastesManager {
 		else
 			return new None<File>();
 	}
-	
+
 	public static Option<InputStream> getPasteInputStream (String key) {
 		File f = new File(getPastesDir().getPath() + File.separator + key);
 		if (f.exists())
@@ -74,18 +74,30 @@ public class PastesManager {
 		else
 			return new None<InputStream>();
 	}
-	
+
 	public static File getNewPasteFile (String key) {
 		return new File(getPastesDir().getPath() + File.separator + key);
 	}
-	
+
 	public static File getPastesDir () {
 		return Play.application().getFile(dataDirPath);
 	}
-	
+
 	public static boolean isKeyAviable (String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined()) return false;
 		return true;
+	}
+
+	public static void deleteAll ()
+	{
+		File f = getPastesDir();
+		if (f.exists()) {
+            File[] pastes = f.listFiles();
+            for (File paste: pastes) {
+            	paste.delete();
+            }
+            f.delete();
+        }
 	}
 }
