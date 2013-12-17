@@ -18,7 +18,7 @@ Si quieres mantenerte informado del progreso del desarrollo de Gloo deberías da
 
 Hay varias formas en las que puedes ser útil en este proyecto, estas son algunas:
 
-- **Probar la aplicación en tu entrono de trabajo particular**: puede parecer trivial, pero esto ayudaría a detectar y corregir problemas de compatibilidad con navegadores, máquinas virtuales, servidores frontend, y un muchos otros que no imagino aún.
+- **Probar la aplicación en tu entrono de trabajo particular**: puede parecer trivial, pero esto ayudaría a detectar y corregir problemas de compatibilidad con navegadores, máquinas virtuales, servidores frontend, y muchos otros que no imagino aún.
 - **Sugerir nuevas ideas**: ¿Tienes una idea genial para Gloo? ¿No sabes cómo implementarla? No importa, contáctame y puede que sea lo próximo que le haga.
 - **Escribir documentación**: Es importante tener una buena documentación que indique cómo sacarle el máximo provecho a Gloo. Los nuevos usuarios y desarrolladores la agradecerán.
 - **Programar clientes que utilicen las APIs**: Esto es algo que pienso hacer cuando Gloo alcance un grado de terminación aceptable, pero tú pudieras hacerlo hoy mismo.
