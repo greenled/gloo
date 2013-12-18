@@ -19,24 +19,26 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 @import helper._
 
 @main("Nuevo recorte") {
-	<nav id="nav-1">
-		<ul>
-			<li><a href="#" onClick="$('#send-text-form').submit();" class="nav-btn" ><i class="save"></i></a></li>
-		</ul>
-	</nav>
-	<content>
-	@helper.form(action = routes.Application.save(), 'id->"add-form") {
-		<textarea class="form-control" id="content" name="content" rows="17" autofocus></textarea>
-	}
-	</content>
-	<nav id="nav-2" >
-		<ul>
-			<li><a class="nav-btn" href="#" ><i class="darken"></i></a></li>
-			<li><a class="nav-btn" href="#" ><i class="lighten"></i></a></li>
-			<li><a class="nav-btn" href="#" ><i class="eye"></i></a></li>
-			<li><a class="nav-btn" href="#" ><i class="help"></i></a></li>
-		</ul>
-	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-md-push-10 sidebar-2">
+				<div class="list-group">
+					<a class="list-group-item" id="send-text" href="#" onClick="$('#add-form').submit();" ><span class="glyphicon glyphicon-ok icon-save"></span> Guardar</a>
+				</div>
+			</div>
+			<div class="col-md-10 col-md-pull-2">
+				@helper.form(action = routes.Application.save(), 'id->"add-form", 'role->"form") {
+					<div class="fieldset">
+						<div class="form-group">
+							<div class="control-group">
+								<textarea class="form-control" id="content" name="content" rows="17" autofocus></textarea>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
 }(){
 <script>
 	$(document).ready(function() {

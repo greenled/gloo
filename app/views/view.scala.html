@@ -18,22 +18,19 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 @(key: String, content: String)
 
 @main(key) {
-	<nav id="nav-1">
-		<ul>
-			<li><a href="#" onClick="$('#send-text-form').submit();" class="nav-btn" ><i class="save"></i></a></li>
-		</ul>
-	</nav>
-	<content>
-		<pre class="prettyprint linenums" id="content" >@content</pre>
-	</content>
-	<nav id="nav-2" >
-		<ul>
-			<li><a class="nav-btn" href="#" ><i class="darken"></i></a></li>
-			<li><a class="nav-btn" href="#" ><i class="lighten"></i></a></li>
-			<li><a class="nav-btn" href="#" ><i class="eye"></i></a></li>
-			<li><a class="nav-btn" href="#" ><i class="help"></i></a></li>
-		</ul>
-	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-md-push-10 sidebar-2">
+				<div class="list-group">
+					<a class="list-group-item" href="@routes.Application.raw(key)" ><span class="glyphicon glyphicon-download-alt icon-download"></span> Descargar</a>
+					<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> Nuevo</a>
+				</div>
+			</div>
+			<div class="col-md-10 col-md-pull-2">
+				<pre class="prettyprint linenums">@content</pre>
+			</div>
+		</div>
+	</div>
 }{
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/prettify.min.css")">
 }{
@@ -41,6 +38,8 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 <script>
 	$(document).ready(function() {
 		window.prettyPrint && prettyPrint();
+		$.ctrl('F', function() {location = "@routes.Application.raw(key)";});
+		$.ctrl('N', function() {location = "@routes.Application.add()";});
 	});
 </script>
 }
