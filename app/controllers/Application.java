@@ -32,11 +32,11 @@ import views.html.view;
 
 public class Application extends Controller {
 	private static Form<Paste> pasteForm = Form.form(Paste.class);
-	
+
 	public static Result add() {
         return ok(add.render(pasteForm));
     }
-	
+
 	public static Result save() {
 		Form<Paste> filledForm = pasteForm.bindFromRequest();
 		if(filledForm.hasErrors()) {
@@ -51,15 +51,15 @@ public class Application extends Controller {
         	return redirect(routes.Application.view(key));
     	}
 	}
-	
+
 	public static Result view(String key) {
 		Option<String> content = PastesManager.load(key);
 		if (content.isDefined())
 			return ok(view.render(key, content.get()));
 		else
-			return notFound("No se ha encontrado " + key);
+			return notFound(views.html.notFound.render("No se ha encontrado " + key));
 	}
-	
+
 	public static Result raw(String key) {
 		Option<File> f = PastesManager.getPasteFile(key);
 		if (f.isDefined())
@@ -67,7 +67,7 @@ public class Application extends Controller {
 		else
 			return notFound("No se ha encontrado " + key);
 	}
-	
+
 	public static Result delete(String key) {
 		PastesManager.delete(key);
 		return ok("Se ha eliminado " + key);
