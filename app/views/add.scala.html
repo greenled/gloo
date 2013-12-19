@@ -19,37 +19,30 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 @import helper._
 
 @main("Nuevo recorte") {
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2 col-md-push-10 sidebar-2">
-				<div class="list-group">
-					<a class="list-group-item" id="send-text" href="#" onClick="$('#add-form').submit();" ><span class="glyphicon glyphicon-ok icon-save"></span> Guardar</a>
+	@if(!pasteForm.field("content").errors().isEmpty()) {
+		@for(error <- pasteForm.field("content").errors()) {
+			<div class="alert alert-danger">
+				<p>@error.message</p>
+			</div>
+		}
+	}
+	@helper.form(action = routes.Application.save(), 'id->"add-form", 'role->"form") {
+		<div class="fieldset">
+			<div class="form-group">
+				<div class="control-group @if(!pasteForm.field("content").errors().isEmpty()){has-error}">
+					<textarea class="form-control" id="content" name="content" rows="17" autofocus></textarea>
 				</div>
 			</div>
-			<div class="col-md-10 col-md-pull-2">
-				@if(!pasteForm.field("content").errors().isEmpty()) {
-					@for(error <- pasteForm.field("content").errors()) {
-						<div class="alert alert-danger">
-							<p>@error.message</p>
-						</div>
-					}
-				}
-				@helper.form(action = routes.Application.save(), 'id->"add-form", 'role->"form") {
-					<div class="fieldset">
-						<div class="form-group">
-							<div class="control-group @if(!pasteForm.field("content").errors().isEmpty()){has-error}">
-								<textarea class="form-control" id="content" name="content" rows="17" autofocus></textarea>
-							</div>
-						</div>
-					</div>
-				}
-			</div>
 		</div>
+	}
+}{
+	<div class="list-group">
+		<a class="list-group-item" id="send-text" href="#" onClick="$('#add-form').submit();" ><span class="glyphicon glyphicon-ok icon-save"></span> Guardar</a>
 	</div>
 }(){
-<script>
-	$(document).ready(function() {
-		$.ctrl('S', function() {$('#add-form').submit();});
-	});
-</script>
+	<script>
+		$(document).ready(function() {
+			$.ctrl('S', function() {$('#add-form').submit();});
+		});
+	</script>
 }

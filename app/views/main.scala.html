@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License
 along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 *@
 
-@(title: String)(content: Html)(styles: Html = Html (""))(scripts: Html = Html (""))
+@(title: String)(content: Html)(sidebar: Html = Html (""))(styles: Html = Html (""))(scripts: Html = Html (""))
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,16 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
     </head>
     <body>
-        @content
+    	<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-md-push-10 sidebar-2">
+					@sidebar
+				</div>
+				<div class="col-md-10 col-md-pull-2">
+					@content
+				</div>
+			</div>
+		</div>
         <script src="@routes.Assets.at("javascripts/jquery-1.10.1.min.js")" type="text/javascript"></script>
         <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
         <script src="@routes.Assets.at("javascripts/scripts.min.js")" type="text/javascript"></script>
