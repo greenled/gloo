@@ -24,9 +24,7 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 		<a class="list-group-item" href="@routes.Application.raw(key)" ><span class="glyphicon glyphicon-download-alt icon-download"></span> Descargar</a>
 		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> Nuevo</a>
 	</div>
-}{
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/prettify.min.css")">
-}{
+}(){
 	<script>
 		$(document).ready(function() {
 			window.prettyPrint && prettyPrint();
