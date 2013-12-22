@@ -11,11 +11,11 @@ GET     /delete/:key                controllers.Application.delete(key: String)
 
 #Text API
 POST    /api/text/                  api.TextAPI.save()
-GET     /api/text/:key              api.TextAPI.raw(key: String)
+GET     /api/text/:key              api.TextAPI.view(key: String)
 
 #Json API
 POST    /api/json/                  api.JsonAPI.save()
-GET     /api/json/:key              api.JsonAPI.raw(key: String)
+GET     /api/json/:key              api.JsonAPI.view(key: String)
 
 #Xml API
 POST    /api/xml/                  api.XmlAPI.save()

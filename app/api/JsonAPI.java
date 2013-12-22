@@ -58,7 +58,7 @@ public class JsonAPI extends Controller
 	}
 
 	@BodyParser.Of ( BodyParser.Json.class )
-	public static Result raw ( String key )
+	public static Result view ( String key )
 	{
 		ObjectNode result = Json.newObject ();
 		Option<String> content = PastesManager.load ( key );

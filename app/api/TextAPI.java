@@ -48,7 +48,7 @@ public class TextAPI extends Controller
 	}
 
 	@BodyParser.Of ( BodyParser.Text.class )
-	public static Result raw ( String key )
+	public static Result view ( String key )
 	{
 		Option<String> content = PastesManager.load ( key );
 		if ( content.isDefined () )
