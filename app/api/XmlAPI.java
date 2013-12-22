@@ -29,7 +29,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 public class XmlAPI extends Controller {
-	
+
 	@BodyParser.Of(BodyParser.Xml.class)
 	public static Result save() {
 		Document dom = request().body().asXml();
@@ -49,8 +49,9 @@ public class XmlAPI extends Controller {
 			}
 		}
 	}
-	
-	public static Result raw (String key)
+
+	@BodyParser.Of(BodyParser.Xml.class)
+	public static Result view (String key)
 	{
 		Option<String> content = PastesManager.load(key);
 		if (content.isDefined()) {
