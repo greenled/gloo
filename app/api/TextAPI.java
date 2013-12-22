@@ -31,9 +31,12 @@ public class TextAPI extends Controller
 	public static Result save ()
 	{
 		String content = request ().body ().asText ();
-		if ( content == null || content.isEmpty () ) {
+		if ( content == null ) {
 			return badRequest ( views.txt.message
 					.render ( "Se esperaba texto plano" ) );
+		} else if (content.isEmpty ()) {
+			return badRequest ( views.txt.message
+					.render ( "Se esperaba texto plano con algo de texto" ) );
 		} else {
 			String key = KeyGenerator.getNewKey ();
 			while ( !PastesManager.isKeyAviable ( key ) ) {
