@@ -13,7 +13,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package api;
 
@@ -29,40 +29,45 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-public class JsonAPI extends Controller {
-	
-	@BodyParser.Of(BodyParser.Json.class)
-	public static Result save() {
-		JsonNode json = request().body().asJson();
-		ObjectNode result = Json.newObject();
-		if (json == null) {
-			return badRequest("Se esperaba Json");
+public class JsonAPI extends Controller
+{
+
+	@BodyParser.Of ( BodyParser.Json.class )
+	public static Result save ()
+	{
+		JsonNode json = request ().body ().asJson ();
+		ObjectNode result = Json.newObject ();
+		if ( json == null ) {
+			result.put ( "gloo", "Se esperaba Json" );
+			return badRequest ( result );
 		} else {
-			String content = json.findPath("content").getTextValue();
-			if(content == null) {
-	    		result.put("message", "Se esperaba parámetro [content]");
-				return badRequest(result);
+			String content = json.findPath("gloo").getTextValue();
+			if (content == null || content.isEmpty()) {
+				result.put ( "gloo", "Se esperaba Json con algún contenido" );
+				return badRequest ( result );
 			} else {
-				String key = KeyGenerator.getNewKey();
-	    		while (!PastesManager.isKeyAviable(key)) {
-	    			key = KeyGenerator.getNewKey();
-	    		}
-	    		PastesManager.save(key, content);
-	    		result.put("key", key);
-	    	    return created(result);
+				String key = KeyGenerator.getNewKey ();
+				while ( !PastesManager.isKeyAviable ( key ) ) {
+					key = KeyGenerator.getNewKey ();
+				}
+				PastesManager.save ( key, content );
+				result.put ( "gloo", key );
+				return created ( result );
 			}
 		}
 	}
-	
-	public static Result raw (String key)
+
+	@BodyParser.Of ( BodyParser.Json.class )
+	public static Result raw ( String key )
 	{
-		ObjectNode result = Json.newObject();
-		Option<String> content = PastesManager.load(key);
-		if (content.isDefined()) {
-    		result.put("content", content.get());
-			return ok(result);
+		ObjectNode result = Json.newObject ();
+		Option<String> content = PastesManager.load ( key );
+		if ( content.isDefined () ) {
+			result.put ( "gloo", content.get () );
+			return ok ( result );
 		} else {
-			return notFound();
+			result.put ( "gloo", "No existe un texto con la clave " + key );
+			return notFound ( result );
 		}
 	}
 }
