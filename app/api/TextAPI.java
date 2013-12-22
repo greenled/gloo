@@ -13,7 +13,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package api;
 
@@ -24,29 +24,33 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-public class TextAPI extends Controller {
-	
-	@BodyParser.Of(BodyParser.Text.class)
-	public static Result save() {
-		String content = request().body().asText();
-		if (content == null || content.isEmpty()) {
-			return badRequest("Se esperaba texto plano");
+public class TextAPI extends Controller
+{
+
+	@BodyParser.Of ( BodyParser.Text.class )
+	public static Result save ()
+	{
+		String content = request ().body ().asText ();
+		if ( content == null || content.isEmpty () ) {
+			return badRequest ( views.txt.message
+					.render ( "Se esperaba texto plano" ) );
 		} else {
-    		String key = KeyGenerator.getNewKey();
-    		while (!PastesManager.isKeyAviable(key)) {
-    			key = KeyGenerator.getNewKey();
-    		}
-    		PastesManager.save(key, content);
-        	return created(key);
+			String key = KeyGenerator.getNewKey ();
+			while ( !PastesManager.isKeyAviable ( key ) ) {
+				key = KeyGenerator.getNewKey ();
+			}
+			PastesManager.save ( key, content );
+			return created ( views.txt.message.render ( key ) );
 		}
 	}
-	
-	public static Result raw (String key)
+
+	public static Result raw ( String key )
 	{
-		Option<String> content = PastesManager.load(key);
-		if (content.isDefined())
-			return ok(content.get());
+		Option<String> content = PastesManager.load ( key );
+		if ( content.isDefined () )
+			return ok ( views.txt.message.render ( content.get () ) );
 		else
-			return notFound();
+			return notFound ( views.txt.message
+					.render ( "No existe un texto con la clave " + key ) );
 	}
 }
