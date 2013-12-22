@@ -60,7 +60,7 @@ public class XmlApiTests {
 	}
 
 	@Test
-	public void rawActionRespondsNotFoundOnNonExistentKey() {
+	public void viewActionRespondsNotFoundOnNonExistentKey() {
 		running(fakeApplication(), new Runnable() {
 			public void run() {
 				Result result = route(fakeRequest(GET, "/api/xml/nonExistentKey"));
