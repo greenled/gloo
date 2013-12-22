@@ -13,7 +13,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package api;
 
@@ -28,36 +28,40 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-public class XmlAPI extends Controller {
+public class XmlAPI extends Controller
+{
 
-	@BodyParser.Of(BodyParser.Xml.class)
-	public static Result save() {
-		Document dom = request().body().asXml();
-		if (dom == null) {
-			return badRequest("Se esperaba Xml");
+	@BodyParser.Of ( BodyParser.Xml.class )
+	public static Result save ()
+	{
+		Document dom = request ().body ().asXml ();
+		if ( dom == null ) {
+			return badRequest ( views.xml.message.render ( "Se esperaba Xml" ) );
 		} else {
-			String content = XPath.selectText("//content", dom);
-			if(content == null) {
-				return badRequest("<message>Se esperaba parámetro [content]</message>");
+			String content = XPath.selectText ( "//gloo", dom );
+			if ( content == null ) {
+				return badRequest ( views.xml.message
+						.render ( "Se esperaba Xml con algún contenido" ) );
 			} else {
-				String key = KeyGenerator.getNewKey();
-	    		while (!PastesManager.isKeyAviable(key)) {
-	    			key = KeyGenerator.getNewKey();
-	    		}
-	    		PastesManager.save(key, content);
-	    	    return created("<key>" + key + "</key>");
+				String key = KeyGenerator.getNewKey ();
+				while ( !PastesManager.isKeyAviable ( key ) ) {
+					key = KeyGenerator.getNewKey ();
+				}
+				PastesManager.save ( key, content );
+				return created ( views.xml.message.render ( key ) );
 			}
 		}
 	}
 
-	@BodyParser.Of(BodyParser.Xml.class)
-	public static Result view (String key)
+	@BodyParser.Of ( BodyParser.Xml.class )
+	public static Result view ( String key )
 	{
-		Option<String> content = PastesManager.load(key);
-		if (content.isDefined()) {
-			return ok("<content>" + content.get() + "</content>");
+		Option<String> content = PastesManager.load ( key );
+		if ( content.isDefined () ) {
+			return ok ( views.xml.message.render ( content.get () ) );
 		} else {
-			return notFound();
+			return notFound ( views.xml.message
+					.render ( "No existe un texto con la clave " + key ) );
 		}
 	}
 }
