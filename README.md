@@ -12,25 +12,30 @@ Además de las funciones básicas de cualquier pastebin (guardar texto y asociar
 
 ## Feedback
 
-Si quieres mantenerte informado del progreso del desarrollo de Gloo deberías darte una vuelta por mi [Twitter](http://twitter.com/greenled2013).
+Si quieres mantenerte informado del progreso del desarrollo de Gloo puedes seguirme en [Twitter](http://twitter.com/greenled2013). Si estás en Cuba, puedes aportar nuevas ideas a través de la red social [Dreamcatchers](http://dreamcatchers.reduc.edu.cu/perfil/greenLED)
 
 ## Cómo colaborar
 
 Hay varias formas en las que puedes ser útil en este proyecto, estas son algunas:
 
 - **Probar la aplicación en tu entrono de trabajo particular**: puede parecer trivial, pero esto ayudaría a detectar y corregir problemas de compatibilidad con navegadores, máquinas virtuales, servidores frontend, y muchos otros que no imagino aún.
-- **Sugerir nuevas ideas**: ¿Tienes una idea genial para Gloo? ¿No sabes cómo implementarla? No importa, contáctame y puede que sea lo próximo que le haga.
-- **Escribir documentación**: Es importante tener una buena documentación que indique cómo sacarle el máximo provecho a Gloo. Los nuevos usuarios y desarrolladores la agradecerán.
-- **Programar clientes que utilicen las APIs**: Esto es algo que pienso hacer cuando Gloo alcance un grado de terminación aceptable, pero tú pudieras hacerlo hoy mismo.
-- **Escribir código**: No tienes que ser un veterano de Java para implementar nuevas funcionalidades, corregir bugs, etc. Serí útil que antes de pensar en escribir código para Gloo tuvieras una noción de cómo funciona [Play 2](http://www.playframework.org): su forma de hacer las cosas se aparta un poco de las "Buenas Prácticas" para programar en Java. Una parte importante del código son los casos de prueba, que puedes ayudar a implementar. También puedes escribir nuevas APIs.
+- **Sugerir nuevas ideas**: ¿Tienes una idea genial para Gloo? Contáctame, quizá pronto esté trabajando en ella.
+- **Escribir código**: No tienes que ser un veterano en Java para implementar nuevas funcionalidades, corregir bugs, etc. Sería útil que antes de pensar en escribir código para Gloo tuvieras una noción de cómo funciona [Play 2](http://www.playframework.org): su forma de hacer las cosas se aparta un poco de las "Buenas Prácticas" para programar en Java. Varias formas de contribuir con código pueden ser:
+	- **Clientes para las APIs**: Esto es algo que pienso hacer cuando Gloo alcance un grado de terminación aceptable, pero tú pudieras hacerlo antes. Personalmente, desearía que existieran clientes integrados en forma de plugins con los principales IDEs, como Eclipse, NetBeans, VisualStudio, y otros para la línea de comandos de los sistemas operativos.
+	- **Nuevas APIs**: Inicialmente incluí sólo tres APIs porque me parecieron las más utilizadas. Sin embargo es posible que te sea mejor utilizar una distinta a las tres existentes y desees implementarla. Seguramente otros que también las utilicen agradecerán tu aporte.
+	- **Casos de prueba**: Una parte importante del código son los casos de prueba. Diseñarlos e implementarlos correctamente, y darles mantenimiento sería de gran ayuda para mantener Gloo libre de errores.
+- **Escribir documentación**: Es importante tener una buena documentación que indique cómo sacarle el máximo provecho a Gloo. Los usuarios y desarrolladores la agradecerán.
+- **Apoyar el depliegue**: Normalmente utilizo una conexión a Internet extremadamante lenta (a veces más que navegar me ahogo :)). Apreciaría muchísimo que me ayudaras a poner las versiones estables de Gloo (ya compiladas) en lugares desde los que los usuarios finales puedan descargarlas, como Source Forge.
 
-Si te decides a colaborar escríbeme a juan.mejias [arroba] reduc.edu.cu.
+Si te decides a colaborar escríbeme a juan.mejias [arroba] reduc.edu.cu
 
 ## Gloo en Heroku
 
 Actualmente estoy trabajando en cómo poner Gloo en [Heroku](http://www.heroku.com) para que puedas verlo funcionando antes de instalarlo.
 
 ## Instalación
+
+Puedes utilizar Gloo de dos formas: como desarrollador o como usuario final. La primera es a partir del código fuente, la segunda a partir de un paquete de instalación. Si solamente deseas utiizar Gloo, te aconsejo que utilices la segunda y vayas directo al paso 5.
 
 ### 1 - Instalar Java Development Kit
 
