@@ -15,7 +15,7 @@ import org.xml.sax.InputSource;
 import play.libs.XML;
 import play.mvc.Result;
 
-public class XmlApiTests {
+public class XmlApiTest {
 	@Before
 	public void clearDB() {
 		running(fakeApplication(), new Runnable() {

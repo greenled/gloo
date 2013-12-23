@@ -4,7 +4,7 @@ import static org.fest.assertions.Assertions.assertThat;
 
 import org.junit.Test;
 
-public class KeyGeneratorTests {
+public class KeyGeneratorTest {
 	@Test
 	public void the_generator_generates_a_key() {
 		String k = KeyGenerator.getNewKey();

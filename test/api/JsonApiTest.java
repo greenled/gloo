@@ -17,7 +17,7 @@ import play.libs.Json;
 import play.libs.XML;
 import play.mvc.Result;
 
-public class JsonApiTests {
+public class JsonApiTest {
 	@Before
 	public void clearDB() {
 		running(fakeApplication(), new Runnable() {

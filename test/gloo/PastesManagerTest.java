@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import play.libs.F.Option;
 
-public class PastesManagerTests {
+public class PastesManagerTest {
 //	@Test
 //	public void save_method_works() {
 //		// TODO ver cómo arrancola aplicación antes de ejecutar esto, pues obtengo un error de que no hay una app corriendo
