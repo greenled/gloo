@@ -12,7 +12,8 @@ Además de las funciones básicas de cualquier pastebin (guardar texto y asociar
 
 ## Feedback
 
-Si quieres mantenerte informado del progreso del desarrollo de Gloo puedes seguirme en [Twitter](http://twitter.com/greenled2013). Si estás en Cuba, puedes aportar nuevas ideas a través de la red social [Dreamcatchers](http://dreamcatchers.reduc.edu.cu/perfil/greenLED)
+- **Twitter**: Si quieres mantenerte informado del progreso del desarrollo de Gloo puedes seguirme en [Twitter](http://twitter.com/greenled2013).
+- **Dreamcatchers**: Si estás en Cuba, puedes aportar nuevas ideas a través de la red social [Dreamcatchers](http://dreamcatchers.reduc.edu.cu/perfil/greenLED)
 
 ## Cómo colaborar
 
