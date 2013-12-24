@@ -19,7 +19,9 @@ package gloo;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Date;
 
+import play.Logger;
 import play.Play;
 import play.api.libs.Files;
 import play.libs.F.None;
@@ -35,9 +37,10 @@ public class PastesManager {
 
 	public static Option<String> load(String key) {
 		Option<File> f = getPasteFile(key);
-		if (f.isDefined())
+		if (f.isDefined()) {
+			f.get().setLastModified(new Date().getTime());
 			return new Some<String>(Files.readFile(f.get()));
-		else
+		} else
 			return new None<String>();
 	}
 
@@ -99,5 +102,23 @@ public class PastesManager {
             }
             f.delete();
         }
+	}
+
+	public static void deleteOld ()
+	{
+		Logger.info("Comenzada la tarea de limpieza");
+		long maxAge = Play.application().configuration().getMilliseconds("cleanning.maxAge");
+		long oblivion = new Date ().getTime () - maxAge;
+		File f = getPastesDir();
+		if (f.exists()) {
+            File[] pastes = f.listFiles();
+            for (File paste: pastes) {
+            	if (paste.lastModified () < oblivion) {
+            		paste.delete();
+            		Logger.info("Eliminado: " + paste.getName ());
+            	}
+            }
+        }
+		Logger.info("Terminada la tarea de limpieza");
 	}
 }
