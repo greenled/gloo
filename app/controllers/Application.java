@@ -65,7 +65,7 @@ public class Application extends Controller {
 		if (f.isDefined())
 			return ok(f.get());
 		else
-			return notFound("No se ha encontrado " + key);
+			return notFound(views.html.notFound.render("No se ha encontrado " + key));
 	}
 
 	public static Result delete(String key) {
