@@ -96,6 +96,15 @@ public class PastesManager {
 		return true;
 	}
 
+	public static String getAviableKey ()
+	{
+		String key = KeyGenerator.getNewKey();
+		while (!isKeyAviable(key)) {
+			key = KeyGenerator.getNewKey();
+		}
+		return key;
+	}
+
 	public static void deleteAll ()
 	{
 		File f = getPastesDir();

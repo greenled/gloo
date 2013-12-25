@@ -17,7 +17,6 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 
 package api;
 
-import gloo.KeyGenerator;
 import gloo.PastesManager;
 import play.libs.F.Option;
 import play.mvc.BodyParser;
@@ -38,10 +37,7 @@ public class TextAPI extends Controller
 			return badRequest ( views.txt.message
 					.render ( "Se esperaba texto plano con algo de texto" ) );
 		} else {
-			String key = KeyGenerator.getNewKey ();
-			while ( !PastesManager.isKeyAviable ( key ) ) {
-				key = KeyGenerator.getNewKey ();
-			}
+			String key = PastesManager.getAviableKey ();
 			PastesManager.save ( key, content );
 			return created ( views.txt.message.render ( key ) );
 		}

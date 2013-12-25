@@ -17,7 +17,6 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 
 package controllers;
 
-import gloo.KeyGenerator;
 import gloo.PastesManager;
 
 import java.io.File;
@@ -43,10 +42,7 @@ public class Application extends Controller {
     		return badRequest(views.html.add.render(filledForm));
     	} else {
     		Paste paste = pasteForm.bindFromRequest().get();
-    		String key = KeyGenerator.getNewKey();
-    		while (!PastesManager.isKeyAviable(key)) {
-    			key = KeyGenerator.getNewKey();
-    		}
+    		String key = PastesManager.getAviableKey ();
     		PastesManager.save(key, paste.content);
         	return redirect(routes.Application.view(key));
     	}

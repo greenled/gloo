@@ -17,7 +17,6 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 
 package api;
 
-import gloo.KeyGenerator;
 import gloo.PastesManager;
 
 import org.w3c.dom.Document;
@@ -43,10 +42,7 @@ public class XmlAPI extends Controller
 				return badRequest ( views.xml.message
 						.render ( "Se esperaba Xml con algún contenido" ) );
 			} else {
-				String key = KeyGenerator.getNewKey ();
-				while ( !PastesManager.isKeyAviable ( key ) ) {
-					key = KeyGenerator.getNewKey ();
-				}
+				String key = PastesManager.getAviableKey ();
 				PastesManager.save ( key, content );
 				return created ( views.xml.message.render ( key ) );
 			}

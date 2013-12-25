@@ -17,7 +17,6 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 
 package api;
 
-import gloo.KeyGenerator;
 import gloo.PastesManager;
 
 import org.codehaus.jackson.JsonNode;
@@ -46,10 +45,7 @@ public class JsonAPI extends Controller
 				result.put ( "gloo", "Se esperaba Json con algún contenido" );
 				return badRequest ( result );
 			} else {
-				String key = KeyGenerator.getNewKey ();
-				while ( !PastesManager.isKeyAviable ( key ) ) {
-					key = KeyGenerator.getNewKey ();
-				}
+				String key = PastesManager.getAviableKey ();
 				PastesManager.save ( key, content );
 				result.put ( "gloo", key );
 				return created ( result );
