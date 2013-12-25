@@ -24,6 +24,7 @@ import java.util.Date;
 import play.Logger;
 import play.Play;
 import play.api.libs.Files;
+import play.libs.Crypto;
 import play.libs.F.None;
 import play.libs.F.Option;
 import play.libs.F.Some;
@@ -33,6 +34,7 @@ public class PastesManager {
 
 	public static void save(String key, String content) {
 		Files.writeFile(getNewPasteFile(key), content);
+		Logger.info("[+] [" + key + "] [" + Crypto.sign ( content ) + "]");
 	}
 
 	public static Option<String> load(String key) {
@@ -58,8 +60,10 @@ public class PastesManager {
 
 	public static void delete(String key) {
 		Option<File> f = getPasteFile(key);
-		if (f.isDefined())
+		if (f.isDefined()) {
 			f.get().delete();
+			Logger.info("[-] [" + key + "]");
+		}
 	}
 
 	public static Option<File> getPasteFile (String key) {
@@ -101,6 +105,7 @@ public class PastesManager {
             	paste.delete();
             }
             f.delete();
+            Logger.info("[-] [*]");
         }
 	}
 
@@ -115,7 +120,7 @@ public class PastesManager {
             for (File paste: pastes) {
             	if (paste.lastModified () < oblivion) {
             		paste.delete();
-            		Logger.info("Eliminado: " + paste.getName ());
+            		Logger.info("[-] [" + paste.getName () + "]");
             	}
             }
         }
