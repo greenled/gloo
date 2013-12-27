@@ -34,7 +34,7 @@ public class PastesManager {
 
 	public static void save(String key, String content) {
 		Files.writeFile(getNewPasteFile(key), content);
-		Logger.info("[+] [" + key + "] [" + Crypto.sign ( content ) + "]");
+		Logger.info("[+][" + key + "][" + Crypto.sign ( content ) + "]");
 	}
 
 	public static Option<String> load(String key) {
@@ -62,7 +62,7 @@ public class PastesManager {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined()) {
 			f.get().delete();
-			Logger.info("[-] [" + key + "]");
+			Logger.info("[-][" + key + "]");
 		}
 	}
 
@@ -114,13 +114,13 @@ public class PastesManager {
             	paste.delete();
             }
             f.delete();
-            Logger.info("[-] [*]");
+            Logger.info("[-][*]");
         }
 	}
 
 	public static void deleteOld ()
 	{
-		Logger.info("Comenzada la tarea de limpieza");
+		Logger.info("[c][started]");
 		long maxAge = Play.application().configuration().getMilliseconds("cleanning.maxAge");
 		long oblivion = new Date ().getTime () - maxAge;
 		File f = getPastesDir();
@@ -129,10 +129,10 @@ public class PastesManager {
             for (File paste: pastes) {
             	if (paste.lastModified () < oblivion) {
             		paste.delete();
-            		Logger.info("[-] [" + paste.getName () + "]");
+            		Logger.info("[c][-][" + paste.getName () + "]");
             	}
             }
         }
-		Logger.info("Terminada la tarea de limpieza");
+		Logger.info("[c][finished]");
 	}
 }
