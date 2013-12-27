@@ -23,7 +23,7 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 	@if(!pasteForm.field("content").errors().isEmpty()) {
 		@for(error <- pasteForm.field("content").errors()) {
 			<div class="alert alert-danger">
-				<p>@error.message</p>
+				<p>@Messages.get(error.message)</p>
 			</div>
 		}
 	}

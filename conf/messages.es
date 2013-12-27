@@ -9,3 +9,5 @@ buttons.save=Guardar
 buttons.download=Descargar
 buttons.add=Nuevo
 buttons.help=Ayuda
+
+error.required=Debes escribir algo
