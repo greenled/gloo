@@ -16,18 +16,19 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 *@
 
 @(message: String)
+@import play.i18n._
 
-@main("No encontrado") {
+@main(Messages.get("notFound.title")) {
 	<div class="container-narrow">
 		<div class="jumbotron">
-			<h1>No encontrado</h1>
-			<p class="lead">Estás buscando algo que no existe</p>
-			<a class="btn btn-large btn-success" href="@routes.Application.add()">Guardar nuevo texto</a>
+			<h1>@Messages.get("notFound.title")</h1>
+			<p class="lead">@Messages.get("notFound.message")</p>
+			<a class="btn btn-large btn-success" href="@routes.Application.add()">@Messages.get("notFound.addNew")</a>
 		</div>
 	</div>
 }{
 	<div class="list-group">
-		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> Nuevo</a>
+		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> @Messages.get("buttons.add")</a>
 	</div>
 }(){
 <script>

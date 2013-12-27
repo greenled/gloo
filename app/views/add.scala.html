@@ -17,8 +17,9 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 
 @(pasteForm: Form[Paste])
 @import helper._
+@import play.i18n._
 
-@main("Nuevo recorte") {
+@main(Messages.get("add.title")) {
 	@if(!pasteForm.field("content").errors().isEmpty()) {
 		@for(error <- pasteForm.field("content").errors()) {
 			<div class="alert alert-danger">
@@ -30,14 +31,14 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="fieldset">
 			<div class="form-group">
 				<div class="control-group @if(!pasteForm.field("content").errors().isEmpty()){has-error}">
-					<textarea class="form-control" id="content" name="content" rows="17" placeholder="Pega tu texto aquí. ADVERTENCIA: Este texto será de dominio público." autofocus></textarea>
+					<textarea class="form-control" id="content" name="content" rows="17" placeholder="@Messages.get("add.privacy")" autofocus></textarea>
 				</div>
 			</div>
 		</div>
 	}
 }{
 	<div class="list-group">
-		<a class="list-group-item" id="send-text" href="#" onClick="$('#add-form').submit();" ><span class="glyphicon glyphicon-ok icon-save"></span> <strong>[S]</strong> Guardar</a>
+		<a class="list-group-item" id="send-text" href="#" onClick="$('#add-form').submit();" ><span class="glyphicon glyphicon-ok icon-save"></span> <strong>[S]</strong> @Messages.get("buttons.save")</a>
 	</div>
 }(){
 	<script>
