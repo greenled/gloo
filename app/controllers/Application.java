@@ -20,6 +20,8 @@ package controllers;
 import gloo.PastesManager;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import models.Paste;
 import play.data.Form;
@@ -67,5 +69,14 @@ public class Application extends Controller {
 	public static Result delete(String key) {
 		PastesManager.delete(key);
 		return ok("Se ha eliminado " + key);
+	}
+
+	public static Result cron () throws UnknownHostException {
+		if (request ().remoteAddress ().equals ( "127.0.0.1" )) {
+			PastesManager.deleteOld ();
+			return redirect ( routes.Application.add () );
+		} else {
+			return forbidden ();
+		}
 	}
 }

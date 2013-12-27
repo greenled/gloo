@@ -8,6 +8,7 @@ POST    /                           controllers.Application.save()
 GET     /:key                       controllers.Application.view(key: String)
 GET     /raw/:key                   controllers.Application.raw(key: String)
 GET     /delete/:key                controllers.Application.delete(key: String)
+GET     /cron/                      controllers.Application.cron()
 
 #Text API
 POST    /api/text/                  api.TextAPI.save()
