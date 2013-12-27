@@ -46,7 +46,7 @@ public class JsonAPI extends Controller
 				return badRequest ( result );
 			} else {
 				String key = PastesManager.getAviableKey ();
-				PastesManager.save ( key, content );
+				PastesManager.save(key, content, request ().remoteAddress ());
 				result.put ( "gloo", key );
 				return created ( result );
 			}

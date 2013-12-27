@@ -38,7 +38,7 @@ public class TextAPI extends Controller
 					.render ( "Se esperaba texto plano con algo de texto" ) );
 		} else {
 			String key = PastesManager.getAviableKey ();
-			PastesManager.save ( key, content );
+			PastesManager.save(key, content, request ().remoteAddress ());
 			return created ( views.txt.message.render ( key ) );
 		}
 	}

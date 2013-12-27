@@ -43,7 +43,7 @@ public class Application extends Controller {
     	} else {
     		Paste paste = pasteForm.bindFromRequest().get();
     		String key = PastesManager.getAviableKey ();
-    		PastesManager.save(key, paste.content);
+    		PastesManager.save(key, paste.content, request ().remoteAddress ());
         	return redirect(routes.Application.view(key));
     	}
 	}

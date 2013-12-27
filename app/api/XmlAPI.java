@@ -43,7 +43,7 @@ public class XmlAPI extends Controller
 						.render ( "Se esperaba Xml con algún contenido" ) );
 			} else {
 				String key = PastesManager.getAviableKey ();
-				PastesManager.save ( key, content );
+				PastesManager.save(key, content, request ().remoteAddress ());
 				return created ( views.xml.message.render ( key ) );
 			}
 		}

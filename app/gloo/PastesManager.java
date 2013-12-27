@@ -32,9 +32,9 @@ import play.libs.F.Some;
 public class PastesManager {
 	private static String dataDirPath = "data";
 
-	public static void save(String key, String content) {
+	public static void save(String key, String content, String ip) {
 		Files.writeFile(getNewPasteFile(key), content);
-		Logger.info("[+][" + key + "][" + Crypto.sign ( content ) + "]");
+		Logger.info("[+][" + key + "][" + ip + "][" + Crypto.sign ( content ) + "]");
 	}
 
 	public static Option<String> load(String key) {
