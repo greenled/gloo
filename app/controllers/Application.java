@@ -53,7 +53,7 @@ public class Application extends Controller {
 		if (content.isDefined())
 			return ok(view.render(key, content.get()));
 		else
-			return notFound(views.html.notFound.render("No se ha encontrado " + key));
+			return notFound(views.html.notFound.render());
 	}
 
 	public static Result raw(String key) {
@@ -61,7 +61,7 @@ public class Application extends Controller {
 		if (f.isDefined())
 			return ok(f.get());
 		else
-			return notFound(views.html.notFound.render("No se ha encontrado " + key));
+			return notFound(views.html.notFound.render());
 	}
 
 	public static Result delete(String key) {
