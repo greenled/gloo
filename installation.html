@@ -1,0 +1,54 @@
+---
+layout: default
+title: Instalación
+slug: installation
+base_url: "../"
+---
+<div class="page-header">
+  <h1><span class="glyphicon glyphicon-gift"></span> Instalación</h1>
+</div>
+<p>Puedes utilizar Gloo de dos formas: como desarrollador o como usuario final. La primera es a partir del código fuente, la segunda a partir de un paquete de instalación.</p>
+<blockquote>
+<p>Si solamente deseas utiizar Gloo ve directo al paso 5.</p>
+</blockquote>
+<h2>1 - Instalar Java Development Kit</h2>
+<p>Primeramente necesitas instalar el Java Development Kit:</p>
+{% highlight bash %}
+$ apt-get install openjdk-7-jdk
+$ java -version
+{% endhighlight %}
+
+<blockquote>
+<p>Actualmente estoy desarrollando Gloo con el JDK 7, sin embargo debería funcionar sin problemas con la versión 6.</p>
+</blockquote>
+<h2>2 - Instalar Play framework</h2>
+<p>Una vez tengas Java debes instalar el framework con que se desarrolla Gloo: <a href="http://www.playframework.org/download">Play 2</a>. Puedes descargarlo desde http://www.playframework.org/download. Dentro del paquete descargado encontrarás las instrucciones para su instalación.</p>
+<blockquote>
+<p>Actualmente estoy desarrollando Gloo con la versión 2.1.0 de Play.</p>
+</blockquote>
+<h2>3 - Personalización (opcional)</h2>
+<p>Recuerda que Gloo es Software Libre, y una de sus cuatro libertades te permite modificarlo y ajustarlo a tus necesidades.</p>
+<p>La forma más fácil de hacerlo es cambiando las hojas de estilos (CSS). Los CSS de Gloo están escritos en LESS, un lenguaje que al compilarlo se obtiene como resultado CSS. Son fácilmene identificables por su extensión <code>.less</code> y se encuentran en el directorio <code>app/assets/stylesheets</code>. Una de las ventajas de utilizar LESS en lugar de CSS desde un principio es que durante el desarrollo de la aplicación Play auto compila los <code>.less</code> y si se le pide también los <em>minifica</em>.</p>
+<p>Otra forma de personalizar Gloo es modificando sus archivos de vistas, que están en <code>app/views</code> y con extensión <code>.scala.html</code>. Estas vistas están compuestas por código Html y código Scala. Si has tenido experiencias previas con motores de plantillas Html encontrarás familiar la sintaxis. Te resultará útil leer la <a href="">documentación de Play acerca del motor de plantillas</a></p>
+<p>Una vez modifiques los <code>.less</code> o los <code>.scala.html</code> deberás compilar la aplicación.</p>
+<h2>4 - Compilar la aplicación</h2>
+<p>El próximo paso es compilar Gloo. Para eso abre una terminal en el directorio raíz de la aplicación y ejecuta lo siguiente:</p>
+{% highlight bash %}
+$ play dist
+{% endhighlight %}
+
+<p>El comando anterior creará un nuevo directorio "dist" con el archivo gloo-1.0-SNAPSHOT.zip dentro. Este archivo contiene la aplicación compilada y lista para ejecutar.</p>
+<h2>5 - Ejecutar la aplicación</h2>
+<p>Una vez tengas el archivo con la aplicación compilada descomprímelo en un directorio en el que tengas permiso de lectura <strong>y de escritura</strong>:</p>
+{% highlight bash %}
+$ unzip gloo2-1.0-SNAPSHOT.zip
+{% endhighlight %}
+
+<p>Luego entra en el directorio de la aplicación descomprimida, asegúrate de que el archivo start tiene permiso de ejecución, y ejecútalo:</p>
+{% highlight bash %}
+$ cd gloo2-1.0-SNAPSHOT
+$ chmod a+x start
+$ ./start
+{% endhighlight %}
+
+<p>Esto iniciará el servidor de la aplicación. Una vez iniciado podrás utilizar la aplicación accediendo a <a href="http://localhost:9000">localhost</a></p>

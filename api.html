@@ -1,0 +1,141 @@
+---
+layout: default
+title: API
+slug: api
+base_url: "../"
+---
+<div class="page-header">
+  <h1><span class="glyphicon glyphicon-flash"></span> API</h1>
+</div>
+<p>En este documento encontrarás información útil acerca de las APIs de Gloo y cómo utilizarlas.</p>
+<blockquote>
+<p>Este documento está dirigido a desarrolladores, si buscas información sobre cómo instalar Gloo lee el documento README.</p>
+</blockquote>
+<p>Gloo tiene tres APIs:</p>
+<ul>
+<li>Texto plano</li>
+<li>Xml</li>
+<li>Json</li>
+</ul>
+<p>Cada una ofrece dos servicios básicos:</p>
+<ul>
+<li>Guardar texto</li>
+<li>Acceder a un texto guardado</li>
+</ul>
+<p>Las siguientes secciones explican cómo utilizar cada API. Para los ejemplos utilicé curl, pero puedes usar algún equivalente si lo prefieres.</p>
+<h2 id="text">API de texto plano</h2>
+<p>Esta es la más sencilla de todas. Entendiendo cómo funciona te será más fácil entender las demás.</p>
+<h3>Guardar texto</h3>
+<ul>
+<li><strong>URL</strong>: /api/text/</li>
+<li><strong>Método HTTP</strong>: POST</li>
+<li><strong>Content-type</strong>: text/plain</li>
+<li><strong>Datos</strong>: texto a guardar</li>
+<li><strong>Respuesta</strong>: identificador del texto guardado</li>
+</ul>
+<h4>Ejemplo</h4>
+{% highlight bash %}
+$ curl
+    --header "Content-type: text/plain"
+    --request POST
+    --data 'Probando el API de texto'
+    http://localhost:9000/api/text/
+$ c523f5df-854e-4cb9-b93c-0fa2aaf7341d
+{% endhighlight %}
+
+<h3>Acceder a un texto guardado</h3>
+<ul>
+<li><strong>URL</strong>: /api/text/[key]</li>
+<li><strong>Parámetros</strong>:<ul>
+<li><strong>key</strong>: identificador del texto guardado</li>
+</ul>
+</li>
+<li><strong>Método HTTP</strong>: GET</li>
+<li><strong>Content-type</strong>: text/plain</li>
+<li><strong>Respuesta</strong>: contenido del texto guardado</li>
+</ul>
+<h4>Ejemplo</h4>
+{% highlight bash %}
+$ curl
+    --header "Content-type: text/plain"
+    http://localhost:9000/api/text/c523f5df-854e-4cb9-b93c-0fa2aaf7341d
+$ Probando el API de texto
+{% endhighlight %}
+
+<h2 id="xml">API Xml</h2>
+<p>Esta funciona de forma similar a la anterior, sólo que espera el texto en formato Xml.</p>
+<h3>Guardar texto</h3>
+<ul>
+<li><strong>URL</strong>: /api/xml/</li>
+<li><strong>Método HTTP</strong>: POST</li>
+<li><strong>Content-type</strong>: text/xml</li>
+<li><strong>Datos</strong>: texto a guardar encerrado en una etiqueta "gloo"</li>
+<li><strong>Respuesta</strong>: identificador del texto guardado encerrado en una etiqueta "gloo"</li>
+</ul>
+<h4>Ejemplo</h4>
+{% highlight bash %}
+$ curl
+    --header "Content-type: text/xml"
+    --request POST
+    --data '<gloo>Probando el API Xml</gloo>'
+    http://localhost:9000/api/text/
+$ <gloo>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</gloo>
+{% endhighlight %}
+
+<h3>Acceder a un texto guardado</h3>
+<ul>
+<li><strong>URL</strong>: /api/xml/[key]</li>
+<li><strong>Parámetros</strong>:<ul>
+<li><strong>key</strong>: identificador del texto guardado</li>
+</ul>
+</li>
+<li><strong>Método HTTP</strong>: GET</li>
+<li><strong>Content-type</strong>: text/xml</li>
+<li><strong>Respuesta</strong>: contenido del texto guardado encerrado en una etiqueta "gloo"</li>
+</ul>
+<h4>Ejemplo</h4>
+{% highlight bash %}
+$ curl
+    --header "Content-type: text/xml"
+    http://localhost:9000/api/xml/f45e2e67-9d1e-4f3b-8240-d0fd37aca902
+$ <gloo>Probando el API Xml</gloo>
+{% endhighlight %}
+
+<h2 id="json">API Json</h2>
+<p>Esta funciona de forma similar a la anterior, sólo que espera el texto en formato Json.</p>
+<h3>Guardar texto</h3>
+<ul>
+<li><strong>URL</strong>: /api/json/</li>
+<li><strong>Método HTTP</strong>: POST</li>
+<li><strong>Content-type</strong>: application/json</li>
+<li><strong>Datos</strong>: objeto Json con un atributo "gloo" con  valor igual al texto a guardar</li>
+<li><strong>Respuesta</strong>: objeto Json con atributo "gloo" con valor igual al identificador del texto guardado</li>
+</ul>
+<h4>Ejemplo</h4>
+{% highlight bash %}
+$ curl
+    --header "Content-type: application/json"
+    --request POST
+    --data '{"gloo":"Probando el API Json"}'
+    http://localhost:9000/api/json/
+$ {"gloo":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
+{% endhighlight %}
+
+<h3>Acceder a un texto guardado</h3>
+<ul>
+<li><strong>URL</strong>: /api/json/[key]</li>
+<li><strong>Parámetros</strong>:<ul>
+<li><strong>key</strong>: identificador del texto guardado</li>
+</ul>
+</li>
+<li><strong>Método HTTP</strong>: GET</li>
+<li><strong>Content-type</strong>: application/json</li>
+<li><strong>Respuesta</strong>: objeto Json con atributo "gloo" con valor igual al contenido del texto guardado</li>
+</ul>
+<h4>Ejemplo</h4>
+{% highlight bash %}
+$ curl
+    --header "Content-type: application/json"
+    http://localhost:9000/api/json/1eca3423-9566-4815-b7ca-0ceb48f5a56b
+$ {"gloo":"Probando el API Json"}
+{% endhighlight %}

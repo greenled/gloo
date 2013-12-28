@@ -1,0 +1,37 @@
+<div class="navbar navbar-default navbar-fixed-top" role="banner">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Cambiar navegación</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="{{ page.base_url }}" class="navbar-brand">Gloo</a>
+		</div>
+		<nav class="collapse navbar-collapse" role="navigation">
+			<ul class="nav navbar-nav">
+				{% if site.posts.size >= 1 %}
+				<li{% if page.slug == "blog" %} class="active"{% endif %}>
+					<a href="{{ page.base_url }}blog"><span class="glyphicon glyphicon-pencil"></span> Blog</a>
+				</li>
+				{% endif %}
+				<li class="dropdown{% if page.slug == "features" %} active{% endif %}">
+					<a href="{{ page.base_url }}features"><span class="glyphicon glyphicon-list"></span> Funciones</a>
+				</li>
+				<li{% if page.slug == "api" %} class="active"{% endif %}>
+					<a href="{{ page.base_url }}api"><span class="glyphicon glyphicon-flash"></span> API</a>
+				</li>
+				<li{% if page.slug == "installation" %} class="active"{% endif %}>
+					<a href="{{ page.base_url }}installation"><span class="glyphicon glyphicon-gift"></span> Instalación</a>
+				</li>
+				<li{% if page.slug == "collaboration" %} class="active"{% endif %}>
+					<a href="{{ page.base_url }}collaboration"><span class="glyphicon glyphicon-globe"></span> Cómo colaborar</a>
+				</li>
+				<li{% if page.slug == "licence" %} class="active"{% endif %}>
+					<a href="{{ page.base_url }}licence"><span class="glyphicon glyphicon-copyright-mark"></span> Licencia</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
