@@ -1,6 +1,7 @@
 package api;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static play.mvc.Http.HeaderNames.CONTENT_TYPE;
 import static play.test.Helpers.*;
 
 import java.io.StringReader;
@@ -12,7 +13,10 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import play.libs.WS;
 import play.libs.XML;
+import play.libs.XPath;
+import play.libs.F.Promise;
 import play.mvc.Result;
 
 public class TextApiTest
@@ -81,5 +85,33 @@ public class TextApiTest
 				assertThat ( status ( result ) ).isEqualTo ( NOT_FOUND );
 			}
 		} );
+	}
+
+	@Test
+	public void testAll () {
+		running(fakeApplication(), new Runnable() {
+			public void run() {
+				String pasteContentToSend = "Probando el API de texto";
+				Result result1 = route(fakeRequest(POST, "/api/text/").withHeader(CONTENT_TYPE, "text/plain").withTextBody(pasteContentToSend));
+				String key = contentAsString (result1);
+				Result result2 = route(fakeRequest(GET, "/api/text/"+key));
+				String pasteContentReceived = contentAsString (result2);
+				assertThat(pasteContentReceived).isEqualTo(pasteContentToSend);
+			}
+		});
+	}
+
+	@Test
+	public void testWithWS () {
+		running(testServer(3333), new Runnable() {
+			public void run() {
+				String pasteContentToSend = "Probando el API de texto";
+				Promise<WS.Response> result1 = WS.url("http://localhost:3333/api/text/").setHeader(CONTENT_TYPE, "text/plain").post(pasteContentToSend);
+				String key = result1.get().getBody();
+				Promise<WS.Response> result2 = WS.url("http://localhost:3333/api/text/"+key).get();
+				String pasteContentReceived = result2.get().getBody();
+				assertThat(pasteContentReceived).isEqualTo(pasteContentToSend);
+			}
+		});
 	}
 }

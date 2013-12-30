@@ -1,21 +1,51 @@
 package gloo;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.running;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import play.libs.F.Option;
 
 public class PastesManagerTest {
-//	@Test
-//	public void save_method_works() {
-//		// TODO ver cómo arrancola aplicación antes de ejecutar esto, pues obtengo un error de que no hay una app corriendo
-//		String key = KeyGenerator.getNewKey();
-//		PastesManager.save(key, "some content");
-//		Option<String> content = PastesManager.load(key);
-//		assertThat(content).isNotNull();
-//		assertThat(content.isDefined()).isTrue();
-//		assertThat(content.get()).isNotNull();
-//		assertThat(content.get()).equals("some content");
-//	}
+	@Before
+	public void clearDB ()
+	{
+		running ( fakeApplication (), new Runnable () {
+			public void run ()
+			{
+				PastesManager.deleteAll ();
+			}
+		} );
+	}
+
+	@Test
+	public void saveWorks() {
+		running ( fakeApplication (), new Runnable () {
+			public void run ()
+			{
+				String key = KeyGenerator.getNewKey();
+				PastesManager.save(key, "some content", "127.0.0.1");
+				Option<String> content = PastesManager.load(key);
+				assertThat(content).isNotNull();
+				assertThat(content.isDefined()).isTrue();
+				assertThat(content.get()).isNotNull();
+				assertThat(content.get()).isEqualTo("some content");
+			}
+		} );
+	}
+
+	@Test
+	public void isKeyAviableWorks() {
+		running ( fakeApplication (), new Runnable () {
+			public void run ()
+			{
+				String key = KeyGenerator.getNewKey();
+				PastesManager.save(key, "some content", "127.0.0.1");
+				assertThat(PastesManager.isKeyAviable(key)).isFalse();
+			}
+		} );
+	}
 }
