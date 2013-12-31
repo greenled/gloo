@@ -1,4 +1,4 @@
-# Gloo - Un pastebin realmente sencillo con muchas funciones
+# Gloo - Un pastebin realmente sencillo
 
 Gloo es un pastebin hecho con el objetivo de generar un tráfico de red mínimo. Para lograrlo, ofrece una interfaz gráfica liviana y varias APIs que permiten acceder al servicio sin necesidad de una interfaz gráfica.
 
@@ -89,7 +89,7 @@ Una vez tengas el archivo con la aplicación compilada descomprímelo en un dire
 
 ```bash
 $ unzip gloo2-1.0-SNAPSHOT.zip
-``` 
+```
 
 Luego entra en el directorio de la aplicación descomprimida, asegúrate de que el archivo start tiene permiso de ejecución, y ejecútalo:
 
