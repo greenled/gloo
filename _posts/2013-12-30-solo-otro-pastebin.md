@@ -2,6 +2,7 @@
 layout: post
 title: Sólo otro pastebin
 base_url: "../../../../../"
+excerpt: Hace unos meses, en algún momento de septiembre, un colega de una lista de correo cubana me habló de la necesidad de crear un pastebin para apoyar otra recién creada lista de correo de desarrolladores. En ese momento ni siquiera sabía qué era un pastebin ni lo útil que puede resultar...
 ---
 
 30 de diciembre de 2013

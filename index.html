@@ -28,7 +28,10 @@ base_url: "./"
 	<ul class="list-unstyled">
 		<h2>Entradas recientes</h2>
 		{% for post in site.posts limit:2 %}
-		<li><h3><span class="glyphicon glyphicon-chevron-right"></span> <a href="{{ post.url }}">{{ post.title }}</a></h3></li>
+		<li>
+			<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+			<p>{{ post.excerpt }}</p>
+		</li>
 		{% endfor %}
 		{% if site.posts.size > 2 %}
 		<a href="{{ page.base_url }}blog" class="btn btn-primary">Ver otras entradas</a>
