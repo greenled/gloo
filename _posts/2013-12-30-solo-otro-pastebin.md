@@ -3,10 +3,8 @@ layout: post
 title: Sólo otro pastebin
 base_url: "../../../../../"
 excerpt: Hace unos meses, en algún momento de septiembre, un colega de una lista de correo cubana me habló de la necesidad de crear un pastebin para apoyar otra recién creada lista de correo de desarrolladores. En ese momento ni siquiera sabía qué era un pastebin ni lo útil que puede resultar...
+fecha: 30 de diciembre de 2013
 ---
-
-30 de diciembre de 2013
-
 Hola, mi nombre es Juan Carlos. Estudio Ingeniería Informática en la [Universidad de Camagüey](http://www.reduc.edu.cu), Cuba, hace tres años y medio. Mi mayor hobby es la programación, junto a la lectura, las series anime y el rock.
 
 Hace unos meses, en algún momento de septiembre, un colega de una lista de correo cubana me habló de la necesidad de crear un pastebin para apoyar otra recién creada lista de correo de desarrolladores. En ese momento ni siquiera sabía qué era un pastebin ni lo útil que puede resultar.
