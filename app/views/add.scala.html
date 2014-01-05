@@ -39,11 +39,13 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 }{
 	<div class="list-group">
 		<a class="list-group-item" id="send-text" href="#" onClick="$('#add-form').submit();" ><span class="glyphicon glyphicon-ok icon-save"></span> <strong>[S]</strong> @Messages.get("buttons.save")</a>
+		<a href="@routes.Application.info()" class="list-group-item"><span class="glyphicon glyphicon-question-sign icon-help"></span> <strong>[I]</strong> @Messages.get("buttons.help")</a>
 	</div>
 }(){
 	<script>
 		$(document).ready(function() {
 			$.ctrl('S', function() {$('#add-form').submit();});
+			$.ctrl('I', function() {location = "@routes.Application.info()";});
 		});
 	</script>
 }

@@ -20,15 +20,17 @@ package controllers;
 import gloo.PastesManager;
 
 import java.io.File;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import models.Paste;
 import play.data.Form;
+import play.i18n.Lang;
 import play.libs.F.Option;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.add;
+import views.html.info;
+import views.html.notFound;
 import views.html.view;
 
 public class Application extends Controller {
@@ -41,7 +43,7 @@ public class Application extends Controller {
 	public static Result save() {
 		Form<Paste> filledForm = pasteForm.bindFromRequest();
 		if(filledForm.hasErrors()) {
-    		return badRequest(views.html.add.render(filledForm));
+    		return badRequest(add.render(filledForm));
     	} else {
     		Paste paste = pasteForm.bindFromRequest().get();
     		String key = PastesManager.getAviableKey ();
@@ -55,7 +57,7 @@ public class Application extends Controller {
 		if (content.isDefined())
 			return ok(view.render(key, content.get()));
 		else
-			return notFound(views.html.notFound.render());
+			return notFound(notFound.render());
 	}
 
 	public static Result raw(String key) {
@@ -63,7 +65,12 @@ public class Application extends Controller {
 		if (f.isDefined())
 			return ok(f.get());
 		else
-			return notFound(views.html.notFound.render());
+			return notFound(notFound.render());
+	}
+
+	public static Result info () {
+		Lang pref = Lang.preferred(request ().acceptLanguages ());
+		return ok(info.render(pref));
 	}
 
 	public static Result delete(String key) {
@@ -76,7 +83,7 @@ public class Application extends Controller {
 			PastesManager.deleteOld ();
 			return redirect ( routes.Application.add () );
 		} else {
-			return forbidden ();
+			return forbidden();
 		}
 	}
 }

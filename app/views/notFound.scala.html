@@ -28,11 +28,13 @@ along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 }{
 	<div class="list-group">
 		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> @Messages.get("buttons.add")</a>
+		<a href="@routes.Application.info()" class="list-group-item"><span class="glyphicon glyphicon-question-sign icon-help"></span> <strong>[I]</strong> @Messages.get("buttons.help")</a>
 	</div>
 }(){
 <script>
 	$(document).ready(function() {
 		$.ctrl('N', function() {location = "@routes.Application.add()";});
+		$.ctrl('I', function() {location = "@routes.Application.info()";});
 	});
 </script>
 }

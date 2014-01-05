@@ -15,24 +15,31 @@ You should have received a copy of the GNU Affero General Public License
 along with Gloo.  If not, see <http://www.gnu.org/licenses/>.
 *@
 
-@(key: String, content: String)
 @import play.i18n._
 
-@main(key) {
-	<pre class="prettyprint linenums">@content</pre>
+@main("Ayuda") {
+<div class="page-header">
+	<h1>Ayuda</h1>
+</div>
+<h2>Acerca de</h2>
+<p>Gloo es un pastebin. Te permite guardar un pedazo de código temporalmente y compartirlo con otras personas.</p>
+<h2>Atajos del teclado</h2>
+<ul class="list-unstyled">
+	<li>[<b>Crtl + I</b>] Ayuda</li>
+	<li>[<b>Crtl + N</b>] Nuevo recorte</li>
+	<li>[<b>Crtl + S</b>] <small>(escribiendo un recorte)</small> Guardar recorte</li>
+	<li>[<b>Crtl + S</b>] <small>(viendo un recorte)</small> Descargar recorte</li>
+</ul>
+<h2>Licencia</h2>
+<p>Gloo es Software Libre. Puedes descargar su código fuente desde <a href="http://greenled.github.io/gloo">el sitio del proyecto<a/>.</p>
 }{
 	<div class="list-group">
-		<a class="list-group-item" href="@routes.Application.raw(key)" ><span class="glyphicon glyphicon-download-alt icon-download"></span> <strong>[S]</strong> @Messages.get("buttons.download")</a>
 		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> @Messages.get("buttons.add")</a>
-		<a href="@routes.Application.info()" class="list-group-item"><span class="glyphicon glyphicon-question-sign icon-help"></span> <strong>[I]</strong> @Messages.get("buttons.help")</a>
 	</div>
 }(){
 	<script>
 		$(document).ready(function() {
-			window.prettyPrint && prettyPrint();
-			$.ctrl('S', function() {location = "@routes.Application.raw(key)";});
 			$.ctrl('N', function() {location = "@routes.Application.add()";});
-			$.ctrl('I', function() {location = "@routes.Application.info()";});
 		});
 	</script>
 }
