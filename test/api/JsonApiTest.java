@@ -8,8 +8,8 @@ import java.io.StringReader;
 
 import gloo.PastesManager;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -92,10 +92,10 @@ public class JsonApiTest {
 						.withHeader(CONTENT_TYPE, "application/json")
 						.withJsonBody(body));
 				JsonNode node1 = Json.parse(contentAsString(result1));
-				String key = node1.findPath("gloo").getTextValue();
+				String key = node1.findPath("gloo").asText();
 				Result result2 = route(fakeRequest(GET, "/api/json/"+key));
 				JsonNode node2 = Json.parse(contentAsString(result2));
-				String pasteContentReceived = node2.findPath("gloo").getTextValue();
+				String pasteContentReceived = node2.findPath("gloo").asText();
 				assertThat(pasteContentReceived).isEqualTo(pasteContentToSend);
 			}
 		});
@@ -109,9 +109,9 @@ public class JsonApiTest {
 				ObjectNode body = Json.newObject();
 				body.put("gloo", pasteContentToSend);
 				Promise<WS.Response> result1 = WS.url("http://localhost:3333/api/json/").setHeader(CONTENT_TYPE, "application/json").post(Json.stringify(body));
-				String key = result1.get().asJson().findPath("gloo").getTextValue();
+				String key = result1.get().asJson().findPath("gloo").asText();
 				Promise<WS.Response> result2 = WS.url("http://localhost:3333/api/json/"+key).get();
-				String pasteContentReceived = result2.get().asJson().findPath("gloo").getTextValue();
+				String pasteContentReceived = result2.get().asJson().findPath("gloo").asText();
 				assertThat(pasteContentReceived).isEqualTo("Probando el API json");
 			}
 		});

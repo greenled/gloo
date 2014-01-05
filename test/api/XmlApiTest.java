@@ -56,7 +56,7 @@ public class XmlApiTest {
 						.withHeader(CONTENT_TYPE, "text/xml").withXmlBody(
 								new InputSource (new StringReader ( "<gloo>Probando el API xml</gloo>" ))));
 				assertThat(status(result)).isEqualTo(CREATED);
-				assertThat(contentType(result)).isEqualTo("text/xml");
+				assertThat(contentType(result)).isEqualTo("application/xml");
 				assertThat(contentAsString(result)).isNotEmpty();
 			}
 		});

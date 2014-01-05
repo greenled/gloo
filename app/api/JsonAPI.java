@@ -19,8 +19,8 @@ package api;
 
 import gloo.PastesManager;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import play.libs.F.Option;
 import play.libs.Json;
@@ -40,7 +40,7 @@ public class JsonAPI extends Controller
 			result.put ( "gloo", "Se esperaba Json" );
 			return badRequest ( result );
 		} else {
-			String content = json.findPath("gloo").getTextValue();
+			String content = json.findPath("gloo").asText();;
 			if (content == null || content.isEmpty()) {
 				result.put ( "gloo", "Se esperaba Json con algún contenido" );
 				return badRequest ( result );
