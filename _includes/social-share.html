@@ -1,4 +1,4 @@
-{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% elsif site.permalink contains category_dir %}{{ '/' | page.url | remove:'index.html' | '/' }}{% else %}{{ page.url | remove:'index.html' | '/' }}{% endif %}{% endcapture %}
+{% capture canonical %}{{ site.final_url }}{% if site.permalink contains '.html' %}{{ page.url }}{% elsif site.permalink contains category_dir %}{{ '/' | page.url | remove:'index.html' | '/' }}{% else %}{{ page.url | remove:'index.html' | '/' }}{% endif %}{% endcapture %}
 <ul class="list-unstyled list-inline text-right">
-	<li><a href="https://twitter.com/intent/tweet?url={{ canonical }}&amp;text={% if page.title %}{{ page.title | escape | truncate:80 | replace:' ','%20' }}{% else %}{{ site.title | escape | truncate:80 | replace:' ','%20' }}{% endif %}&amp;via=okeeblow" class="btn btn-info"">Compartir en Twitter</a></li>
+	<li><a href="https://twitter.com/intent/tweet?url={{ canonical }}&amp;text={% if page.title %}{{ page.title | escape | truncate:80 | replace:' ','%20' }}{% else %}{{ site.title | escape | truncate:80 | replace:' ','%20' }}{% endif %}&amp;via=greenled" class="btn btn-info"">Compartir en Twitter</a></li>
 </ul>
