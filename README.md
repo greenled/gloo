@@ -62,7 +62,7 @@ $ java -version
 
 Una vez tengas Java debes instalar el framework con que se desarrolla Gloo: [Play 2](http://www.playframework.org/download). Puedes descargarlo desde http://www.playframework.org/download. Dentro del paquete descargado encontrarás las instrucciones para su instalación.
 
-> Actualmente estoy desarrollando Gloo con la versión 2.1.0 de Play.
+> Actualmente estoy desarrollando Gloo con la versión 2.2.1 de Play.
 
 ### 3 - Personalización (opcional)
 
