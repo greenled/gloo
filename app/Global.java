@@ -1,4 +1,6 @@
 import play.*;
+import play.api.mvc.EssentialFilter;
+import play.filters.gzip.GzipFilter;
 import play.libs.*;
 import scala.concurrent.duration.Duration;
 
@@ -24,5 +26,9 @@ public class Global extends GlobalSettings
 				Akka.system().dispatcher()
 			);
 		}
+	}
+
+	public <T extends EssentialFilter> Class<T>[] filters() {
+		return new Class[]{GzipFilter.class};
 	}
 }
