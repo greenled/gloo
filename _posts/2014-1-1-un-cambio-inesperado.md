@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ﻿Un cambio inesperado
-base_url: "../../../../../"
+permalink: "un-cambio-inesperado"
 excerpt: Algo que pensé casi desde el mismo inicio de este proyecto fue su nombre. Inicialmente lo llamé Glue, que viene siendo "pegamento" en inglés y viene bien a un programa para pegar código fuente en la web. Un poco después...
 fecha: 1 de enero de 2013
 ---
