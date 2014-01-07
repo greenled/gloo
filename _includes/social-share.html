@@ -1,4 +1,5 @@
 {% capture canonical %}{{ site.final_url }}{% if site.permalink contains '.html' %}{{ page.url }}{% elsif site.permalink contains category_dir %}{{ '/' | page.url | remove:'index.html' | '/' }}{% else %}{{ page.url | remove:'index.html' | '/' }}{% endif %}{% endcapture %}
 <ul class="list-unstyled list-inline text-right">
+	<li><a href="https://www.facebook.com/sharer.php?s=100&amp;p%5Burl%5D={{ canonical }}&amp;p%5Btitle%5D={% if page.title %}{{ page.title | escape | replace:' ','%20' }}{% else %}{{ site.title | escape | replace:' ','%20' }}{% endif %}&amp;p%5Bsummary%5D={% if page.excerpt != empty %}{{ page.excerpt | strip_html | condense_spaces | truncate:150 | replace:' ','%20' }}{% endif %}" class="btn btn-primary"">Compartir en Facebook</a></li>
 	<li><a href="https://twitter.com/intent/tweet?url={{ canonical }}&amp;text={% if page.title %}{{ page.title | escape | truncate:80 | replace:' ','%20' }}{% else %}{{ site.title | escape | truncate:80 | replace:' ','%20' }}{% endif %}&amp;via=greenled" class="btn btn-info"">Compartir en Twitter</a></li>
 </ul>
