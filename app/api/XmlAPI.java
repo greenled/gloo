@@ -37,7 +37,7 @@ public class XmlAPI extends Controller
 		if ( dom == null ) {
 			return badRequest ( views.xml.message.render ( "Se esperaba Xml" ) );
 		} else {
-			String content = XPath.selectText ( "//gloo", dom );
+			String content = XPath.selectText ( "//content", dom );
 			if ( content == null ) {
 				return badRequest ( views.xml.message
 						.render ( "Se esperaba Xml con algún contenido" ) );
