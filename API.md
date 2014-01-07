@@ -67,8 +67,8 @@ Esta funciona de forma similar a la anterior, sólo que espera el texto en forma
 - **URL**: /api/xml/
 - **Método HTTP**: POST
 - **Content-type**: text/xml
-- **Datos**: texto a guardar encerrado en una etiqueta "gloo"
-- **Respuesta**: identificador del texto guardado encerrado en una etiqueta "gloo"
+- **Datos**: texto a guardar encerrado en una etiqueta "content"
+- **Respuesta**: identificador del texto guardado encerrado en una etiqueta "key"
 
 #### Ejemplo
 
@@ -76,9 +76,9 @@ Esta funciona de forma similar a la anterior, sólo que espera el texto en forma
 $ curl
 	--header "Content-type: text/xml"
 	--request POST
-	--data '<gloo>Probando el API Xml</gloo>'
+	--data '<content>Probando el API Xml</content>'
 	http://localhost:9000/api/text/
-$ <gloo>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</gloo>
+$ <key>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</key>
 ```
 
 ### Acceder a un texto guardado
@@ -88,7 +88,7 @@ $ <gloo>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</gloo>
 	- **key**: identificador del texto guardado
 - **Método HTTP**: GET
 - **Content-type**: text/xml
-- **Respuesta**: contenido del texto guardado encerrado en una etiqueta "gloo"
+- **Respuesta**: contenido del texto guardado encerrado en una etiqueta "content"
 
 #### Ejemplo
 
@@ -96,7 +96,7 @@ $ <gloo>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</gloo>
 $ curl
 	--header "Content-type: text/xml"
 	http://localhost:9000/api/xml/f45e2e67-9d1e-4f3b-8240-d0fd37aca902
-$ <gloo>Probando el API Xml</gloo>
+$ <content>Probando el API Xml</content>
 ```
 
 ## API Json
@@ -108,8 +108,8 @@ Esta funciona de forma similar a la anterior, sólo que espera el texto en forma
 - **URL**: /api/json/
 - **Método HTTP**: POST
 - **Content-type**: application/json
-- **Datos**: objeto Json con un atributo "gloo" con  valor igual al texto a guardar
-- **Respuesta**: objeto Json con atributo "gloo" con valor igual al identificador del texto guardado
+- **Datos**: objeto Json con un atributo "content" con  valor igual al texto a guardar
+- **Respuesta**: objeto Json con atributo "key" con valor igual al identificador del texto guardado
 
 #### Ejemplo
 
@@ -117,9 +117,9 @@ Esta funciona de forma similar a la anterior, sólo que espera el texto en forma
 $ curl
 	--header "Content-type: application/json"
 	--request POST
-	--data '{"gloo":"Probando el API Json"}'
+	--data '{"content":"Probando el API Json"}'
 	http://localhost:9000/api/json/
-$ {"gloo":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
+$ {"key":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
 ```
 
 ### Acceder a un texto guardado
@@ -129,7 +129,7 @@ $ {"gloo":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
 	- **key**: identificador del texto guardado
 - **Método HTTP**: GET
 - **Content-type**: application/json
-- **Respuesta**: objeto Json con atributo "gloo" con valor igual al contenido del texto guardado
+- **Respuesta**: objeto Json con atributo "content" con valor igual al contenido del texto guardado
 
 #### Ejemplo
 
@@ -137,5 +137,5 @@ $ {"gloo":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
 $ curl
 	--header "Content-type: application/json"
 	http://localhost:9000/api/json/1eca3423-9566-4815-b7ca-0ceb48f5a56b
-$ {"gloo":"Probando el API Json"}
+$ {"content":"Probando el API Json"}
 ```
