@@ -1,4 +1,4 @@
-name := "Gloo"
+name := "Pegotes"
 
 version := "1.0-SNAPSHOT"
 

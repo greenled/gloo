@@ -1,4 +1,4 @@
-Gloo - Un pastebin realmente sencillo
+Pegotes - Un pastebin realmente sencillo
 ================================================
 
 Copyright 2013 by Juan Carlos Mejías Rodríguez (greenLED)

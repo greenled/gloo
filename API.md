@@ -1,10 +1,10 @@
-# APIs de Gloo
+# APIs de Pegotes
 
-En este documento encontrarás información útil acerca de las APIs de Gloo y cómo utilizarlas.
+En este documento encontrarás información útil acerca de las APIs de Pegotes y cómo utilizarlas.
 
-> Este documento está dirigido a desarrolladores, si buscas información sobre cómo instalar Gloo lee el documento README.
+> Este documento está dirigido a desarrolladores, si buscas información sobre cómo instalar Pegotes lee el documento README.
 
-Gloo tiene tres APIs:
+Pegotes tiene tres APIs:
 
 - Texto plano
 - Xml
