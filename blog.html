@@ -2,7 +2,6 @@
 layout: default
 title: Blog
 slug: blog
-base_url: "../"
 ---
 <div class="page-header">
   <h1><span class="glyphicon glyphicon-pencil"></span> Blog</h1>
@@ -10,7 +9,7 @@ base_url: "../"
 <ul class="list-unstyled">
   {% for post in site.posts %}
 	<li>
-		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+		<h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
 		<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.fecha }}</p>
 		<p>{{ post.excerpt }}</p>
 	</li>

@@ -7,9 +7,7 @@ permalink:        pretty
 baseurl:          /gloo
 
 # Server
-destination:      ./doc
-exclude:          []
-port:             9001
+exclude:          [.gitignore]
 
 # Custom vars
 repo:             https://github.com/greenled/gloo

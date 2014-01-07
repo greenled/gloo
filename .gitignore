@@ -25,3 +25,4 @@ server.pid
 /RUNNING_PID
 data
 *~
+_site/
