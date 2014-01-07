@@ -31,15 +31,13 @@ public class TextAPI extends Controller
 	{
 		String content = request ().body ().asText ();
 		if ( content == null ) {
-			return badRequest ( views.txt.message
-					.render ( "Se esperaba texto plano" ) );
+			return badRequest ("Se esperaba texto plano");
 		} else if (content.isEmpty ()) {
-			return badRequest ( views.txt.message
-					.render ( "Se esperaba texto plano con algo de texto" ) );
+			return badRequest ("Se esperaba texto plano con algo de texto");
 		} else {
 			String key = PastesManager.getAviableKey ();
 			PastesManager.save(key, content, request ().remoteAddress ());
-			return created ( views.txt.message.render ( key ) );
+			return created (key);
 		}
 	}
 
@@ -48,9 +46,8 @@ public class TextAPI extends Controller
 	{
 		Option<String> content = PastesManager.load ( key );
 		if ( content.isDefined () )
-			return ok ( views.txt.message.render ( content.get () ) );
+			return ok (content.get ());
 		else
-			return notFound ( views.txt.message
-					.render ( "No existe un texto con la clave " + key ) );
+			return notFound ("No existe un texto con la clave " + key);
 	}
 }
