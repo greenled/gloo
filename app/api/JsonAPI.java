@@ -17,11 +17,11 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 
 package api;
 
-import gloo.PastesManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import pegotes.PastesManager;
 import play.libs.F.Option;
 import play.libs.Json;
 import play.mvc.BodyParser;

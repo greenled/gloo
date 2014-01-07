@@ -17,10 +17,10 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 
 package api;
 
-import gloo.PastesManager;
 
 import org.w3c.dom.Document;
 
+import pegotes.PastesManager;
 import play.libs.F.Option;
 import play.libs.XPath;
 import play.mvc.BodyParser;

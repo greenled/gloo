@@ -5,13 +5,13 @@ import static play.test.Helpers.*;
 
 import java.io.StringReader;
 
-import gloo.PastesManager;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import pegotes.PastesManager;
 import play.libs.F.Promise;
 import play.libs.WS;
 import play.libs.XML;

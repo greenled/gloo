@@ -17,12 +17,12 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 
 package controllers;
 
-import gloo.PastesManager;
 
 import java.io.File;
 import java.net.UnknownHostException;
 
 import models.Paste;
+import pegotes.PastesManager;
 import play.data.Form;
 import play.i18n.Lang;
 import play.libs.F.Option;

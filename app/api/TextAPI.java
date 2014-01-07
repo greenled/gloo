@@ -17,7 +17,7 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 
 package api;
 
-import gloo.PastesManager;
+import pegotes.PastesManager;
 import play.libs.F.Option;
 import play.mvc.BodyParser;
 import play.mvc.Controller;

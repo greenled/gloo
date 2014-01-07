@@ -15,13 +15,13 @@ You should have received a copy of the GNU Affero General Public License
 along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import pegotes.PastesManager;
 import play.*;
 import play.api.mvc.EssentialFilter;
 import play.filters.gzip.GzipFilter;
 import play.libs.*;
 import scala.concurrent.duration.Duration;
 
-import gloo.PastesManager;
 
 import java.util.concurrent.TimeUnit;
 

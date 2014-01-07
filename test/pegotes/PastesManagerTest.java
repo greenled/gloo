@@ -1,4 +1,4 @@
-package gloo;
+package pegotes;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.fakeApplication;
@@ -7,6 +7,8 @@ import static play.test.Helpers.running;
 import org.junit.Before;
 import org.junit.Test;
 
+import pegotes.KeyGenerator;
+import pegotes.PastesManager;
 import play.libs.F.Option;
 
 public class PastesManagerTest {

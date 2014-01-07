@@ -1,8 +1,10 @@
-package gloo;
+package pegotes;
 
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.junit.Test;
+
+import pegotes.KeyGenerator;
 
 public class KeyGeneratorTest {
 	@Test

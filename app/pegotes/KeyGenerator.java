@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License
 along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package gloo;
+package pegotes;
 
 import java.util.UUID;
 

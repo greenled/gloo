@@ -6,7 +6,6 @@ import static play.test.Helpers.*;
 
 import java.io.StringReader;
 
-import gloo.PastesManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -15,6 +14,7 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import pegotes.PastesManager;
 import play.libs.Json;
 import play.libs.WS;
 import play.libs.XML;
