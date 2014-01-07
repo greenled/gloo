@@ -36,18 +36,20 @@ $ java -version
 $ play dist
 {% endhighlight %}
 
-<p>El comando anterior creará un nuevo directorio "dist" con el archivo gloo-1.0-SNAPSHOT.zip dentro. Este archivo contiene la aplicación compilada y lista para ejecutar.</p>
+<p>El comando anterior creará un archivo <strong>Pegotes-1.0-SNAPSHOT.zip</strong> dentro del directorio <strong>target/universal</strong> relativo al directorio del proyecto. Este archivo contiene la aplicación compilada y lista para ejecutar.</p>
 <h2>5 - Ejecutar la aplicación</h2>
 <p>Una vez tengas el archivo con la aplicación compilada descomprímelo en un directorio en el que tengas permiso de lectura <strong>y de escritura</strong>:</p>
 {% highlight bash %}
-$ unzip gloo2-1.0-SNAPSHOT.zip
+$ unzip Pegotes-1.0-SNAPSHOT.zip
 {% endhighlight %}
 
-<p>Luego entra en el directorio de la aplicación descomprimida, asegúrate de que el archivo start tiene permiso de ejecución, y ejecútalo:</p>
+<p>Luego entra en el directorio bin dentro de la aplicación descomprimida, asegúrate de que el archivo start tiene permiso de ejecución, y ejecútalo:</p>
 {% highlight bash %}
-$ cd gloo2-1.0-SNAPSHOT
-$ chmod a+x start
-$ ./start
+$ cd Pegotes-1.0-SNAPSHOT/bin
+$ chmod a+x pegotes
+$ ./pegotes
 {% endhighlight %}
 
-<p>Esto iniciará el servidor de la aplicación. Una vez iniciado podrás utilizar la aplicación accediendo a <a href="http://localhost:9000">localhost</a></p>
+<p>Si utilizas Windows debes ejecutar el archivo <strong>pegotes.bat</strong> en lugar de <strong>pegotes</strong>.</p>
+
+<p>Esto iniciará la aplicación. Una vez iniciada podrás utilizarla accediendo a <a href="http://localhost:9000">localhost</a></p>
