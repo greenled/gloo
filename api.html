@@ -68,17 +68,17 @@ $ Probando el API de texto
 <li><strong>URL</strong>: /api/xml/</li>
 <li><strong>Método HTTP</strong>: POST</li>
 <li><strong>Content-type</strong>: text/xml</li>
-<li><strong>Datos</strong>: texto a guardar encerrado en una etiqueta "gloo"</li>
-<li><strong>Respuesta</strong>: identificador del texto guardado encerrado en una etiqueta "gloo"</li>
+<li><strong>Datos</strong>: texto a guardar encerrado en una etiqueta "content"</li>
+<li><strong>Respuesta</strong>: identificador del texto guardado encerrado en una etiqueta "key"</li>
 </ul>
 <h4>Ejemplo</h4>
 {% highlight bash %}
 $ curl
     --header "Content-type: text/xml"
     --request POST
-    --data '<gloo>Probando el API Xml</gloo>'
+    --data '<content>Probando el API Xml</content>'
     http://localhost:9000/api/text/
-$ <gloo>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</gloo>
+$ <key>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</key>
 {% endhighlight %}
 
 <h3>Acceder a un texto guardado</h3>
@@ -90,14 +90,14 @@ $ <gloo>f45e2e67-9d1e-4f3b-8240-d0fd37aca902</gloo>
 </li>
 <li><strong>Método HTTP</strong>: GET</li>
 <li><strong>Content-type</strong>: text/xml</li>
-<li><strong>Respuesta</strong>: contenido del texto guardado encerrado en una etiqueta "gloo"</li>
+<li><strong>Respuesta</strong>: contenido del texto guardado encerrado en una etiqueta "content"</li>
 </ul>
 <h4>Ejemplo</h4>
 {% highlight bash %}
 $ curl
     --header "Content-type: text/xml"
     http://localhost:9000/api/xml/f45e2e67-9d1e-4f3b-8240-d0fd37aca902
-$ <gloo>Probando el API Xml</gloo>
+$ <content>Probando el API Xml</content>
 {% endhighlight %}
 
 <h2 id="json">API Json</h2>
@@ -107,17 +107,17 @@ $ <gloo>Probando el API Xml</gloo>
 <li><strong>URL</strong>: /api/json/</li>
 <li><strong>Método HTTP</strong>: POST</li>
 <li><strong>Content-type</strong>: application/json</li>
-<li><strong>Datos</strong>: objeto Json con un atributo "gloo" con  valor igual al texto a guardar</li>
-<li><strong>Respuesta</strong>: objeto Json con atributo "gloo" con valor igual al identificador del texto guardado</li>
+<li><strong>Datos</strong>: objeto Json con un atributo "content" con  valor igual al texto a guardar</li>
+<li><strong>Respuesta</strong>: objeto Json con atributo "key" con valor igual al identificador del texto guardado</li>
 </ul>
 <h4>Ejemplo</h4>
 {% highlight bash %}
 $ curl
     --header "Content-type: application/json"
     --request POST
-    --data '{"gloo":"Probando el API Json"}'
+    --data '{"content":"Probando el API Json"}'
     http://localhost:9000/api/json/
-$ {"gloo":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
+$ {"key":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
 {% endhighlight %}
 
 <h3>Acceder a un texto guardado</h3>
@@ -129,12 +129,12 @@ $ {"gloo":"1eca3423-9566-4815-b7ca-0ceb48f5a56b"}
 </li>
 <li><strong>Método HTTP</strong>: GET</li>
 <li><strong>Content-type</strong>: application/json</li>
-<li><strong>Respuesta</strong>: objeto Json con atributo "gloo" con valor igual al contenido del texto guardado</li>
+<li><strong>Respuesta</strong>: objeto Json con atributo "key" con valor igual al contenido del texto guardado</li>
 </ul>
 <h4>Ejemplo</h4>
 {% highlight bash %}
 $ curl
     --header "Content-type: application/json"
     http://localhost:9000/api/json/1eca3423-9566-4815-b7ca-0ceb48f5a56b
-$ {"gloo":"Probando el API Json"}
+$ {"key":"Probando el API Json"}
 {% endhighlight %}
