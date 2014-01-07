@@ -59,7 +59,7 @@ public class JsonApiTest {
 		running(fakeApplication(), new Runnable() {
 			public void run() {
 				ObjectNode body = Json.newObject();
-				body.put("gloo", "Probando el API json");
+				body.put("content", "Probando el API json");
 				Result result = route(fakeRequest(POST, "/api/json/")
 						.withHeader(CONTENT_TYPE, "application/json")
 						.withJsonBody(body));
@@ -87,15 +87,15 @@ public class JsonApiTest {
 			public void run() {
 				String pasteContentToSend = "Probando el API json";
 				ObjectNode body = Json.newObject();
-				body.put("gloo", pasteContentToSend);
+				body.put("content", pasteContentToSend);
 				Result result1 = route(fakeRequest(POST, "/api/json/")
 						.withHeader(CONTENT_TYPE, "application/json")
 						.withJsonBody(body));
 				JsonNode node1 = Json.parse(contentAsString(result1));
-				String key = node1.findPath("gloo").asText();
+				String key = node1.findPath("key").asText();
 				Result result2 = route(fakeRequest(GET, "/api/json/"+key));
 				JsonNode node2 = Json.parse(contentAsString(result2));
-				String pasteContentReceived = node2.findPath("gloo").asText();
+				String pasteContentReceived = node2.findPath("content").asText();
 				assertThat(pasteContentReceived).isEqualTo(pasteContentToSend);
 			}
 		});
@@ -107,11 +107,11 @@ public class JsonApiTest {
 			public void run() {
 				String pasteContentToSend = "Probando el API json";
 				ObjectNode body = Json.newObject();
-				body.put("gloo", pasteContentToSend);
+				body.put("content", pasteContentToSend);
 				Promise<WS.Response> result1 = WS.url("http://localhost:3333/api/json/").setHeader(CONTENT_TYPE, "application/json").post(Json.stringify(body));
-				String key = result1.get().asJson().findPath("gloo").asText();
+				String key = result1.get().asJson().findPath("key").asText();
 				Promise<WS.Response> result2 = WS.url("http://localhost:3333/api/json/"+key).get();
-				String pasteContentReceived = result2.get().asJson().findPath("gloo").asText();
+				String pasteContentReceived = result2.get().asJson().findPath("content").asText();
 				assertThat(pasteContentReceived).isEqualTo("Probando el API json");
 			}
 		});

@@ -37,17 +37,17 @@ public class JsonAPI extends Controller
 		JsonNode json = request ().body ().asJson ();
 		ObjectNode result = Json.newObject ();
 		if ( json == null ) {
-			result.put ( "gloo", "Se esperaba Json" );
+			result.put ( "message", "Se esperaba Json" );
 			return badRequest ( result );
 		} else {
-			String content = json.findPath("gloo").asText();;
+			String content = json.findPath("content").asText();;
 			if (content == null || content.isEmpty()) {
-				result.put ( "gloo", "Se esperaba Json con algún contenido" );
+				result.put ( "message", "Se esperaba Json con algún contenido" );
 				return badRequest ( result );
 			} else {
 				String key = PastesManager.getAviableKey ();
 				PastesManager.save(key, content, request ().remoteAddress ());
-				result.put ( "gloo", key );
+				result.put ( "key", key );
 				return created ( result );
 			}
 		}
@@ -59,10 +59,10 @@ public class JsonAPI extends Controller
 		ObjectNode result = Json.newObject ();
 		Option<String> content = PastesManager.load ( key );
 		if ( content.isDefined () ) {
-			result.put ( "gloo", content.get () );
+			result.put ( "content", content.get () );
 			return ok ( result );
 		} else {
-			result.put ( "gloo", "No existe un texto con la clave " + key );
+			result.put ( "message", "No existe un texto con la clave " + key );
 			return notFound ( result );
 		}
 	}
