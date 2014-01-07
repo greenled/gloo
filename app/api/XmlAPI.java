@@ -44,7 +44,7 @@ public class XmlAPI extends Controller
 			} else {
 				String key = PastesManager.getAviableKey ();
 				PastesManager.save(key, content, request ().remoteAddress ());
-				return created ( views.xml.message.render ( key ) );
+				return created ( views.xml.key.render ( key ) );
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class XmlAPI extends Controller
 	{
 		Option<String> content = PastesManager.load ( key );
 		if ( content.isDefined () ) {
-			return ok ( views.xml.message.render ( content.get () ) );
+			return ok ( views.xml.content.render ( content.get () ) );
 		} else {
 			return notFound ( views.xml.message
 					.render ( "No existe un texto con la clave " + key ) );

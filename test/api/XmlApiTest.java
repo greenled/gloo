@@ -81,12 +81,12 @@ public class XmlApiTest {
 						.withHeader(CONTENT_TYPE, "text/xml").withXmlBody(
 								new InputSource (new StringReader ( pasteContentToSend ))));
 				Document xml1 = XML.fromString(contentAsString(result1));
-				String key = XPath.selectText("//message", xml1);
+				String key = XPath.selectText("//key", xml1);
 				Result result2 = route(fakeRequest(GET, "/api/xml/"+key));
 				Document xml2 = XML.fromString(contentAsString(result2));
 				assertThat(xml2.getXmlEncoding()).isEqualTo("utf-8");
 				assertThat(xml2.getXmlVersion()).isEqualTo("1.0");
-				String content = XPath.selectText("//message", xml2);
+				String content = XPath.selectText("//content", xml2);
 				assertThat(content).isEqualTo("Probando el <strong>API</strong> xml");
 			}
 		});
@@ -99,10 +99,10 @@ public class XmlApiTest {
 				String pasteContentToSend = "<content>Probando el &lt;strong&gt;API&lt;/strong&gt; xml</content>";
 				Promise<WS.Response> result1 = WS.url("http://localhost:3333/api/xml/").setHeader(CONTENT_TYPE, "text/xml").post(pasteContentToSend);
 				Document document1 = result1.get().asXml();
-				String key = XPath.selectText("//message", document1);
+				String key = XPath.selectText("//key", document1);
 				Promise<WS.Response> result2 = WS.url("http://localhost:3333/api/xml/"+key).get();
 				Document document2 = result2.get().asXml();
-				String pasteContentReceived = XPath.selectText("//message", document2);
+				String pasteContentReceived = XPath.selectText("//content", document2);
 				assertThat(pasteContentReceived).isEqualTo("Probando el <strong>API</strong> xml");
 			}
 		});
