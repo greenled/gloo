@@ -1,13 +1,13 @@
-add.title=New text
-add.privacy=Paste your text here. WARNING: This text will be of public domain.
+add.title=New pegote
+add.privacy=Put your pegote here. WARNING: This pegote will be of public domain.
 
 notFound.title=Not found
-notFound.message=You are looking for something that doesn't exists
-notFound.addNew=Save a new text
+notFound.message=You are looking for something that does not exists
+notFound.addNew=Add a new pegote
 
-buttons.save=Save
+buttons.save=Paste it!
 buttons.download=Download
 buttons.add=New
 buttons.help=Help
 
-error.required=You must write something
+error.required=Your pegote can not be empty

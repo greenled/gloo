@@ -1,13 +1,13 @@
-add.title=Nuevo recorte
-add.privacy=Pega tu texto aquí. ADVERTENCIA: Este texto será de dominio público.
+add.title=Nuevo pegote
+add.privacy=Pon tu pegote aquí. ADVERTENCIA: Este pegote será de dominio público.
 
 notFound.title=No encontrado
 notFound.message=Estás buscando algo que no existe
-notFound.addNew=Guardar un nuevo texto
+notFound.addNew=Crear un nuevo pegote
 
-buttons.save=Guardar
+buttons.save=¡Pégalo!
 buttons.download=Descargar
 buttons.add=Nuevo
 buttons.help=Ayuda
 
-error.required=Debes escribir algo
+error.required=Tu pegote no puede estar vacío
