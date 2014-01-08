@@ -30,7 +30,7 @@ import play.libs.F.Option;
 import play.libs.F.Some;
 
 public class PastesManager {
-	private static String dataDirPath = "data";
+	private static String defaultDataDir = "data";
 
 	public static void save(String key, String content, String ip) {
 		Files.writeFile(getNewPasteFile(key), content);
@@ -87,7 +87,7 @@ public class PastesManager {
 	}
 
 	public static File getPastesDir () {
-		return Play.application().getFile(dataDirPath);
+		return Play.application().getFile(Play.application().configuration().getString("data.dir", defaultDataDir));
 	}
 
 	public static boolean isKeyAviable (String key) {
