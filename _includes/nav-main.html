@@ -11,7 +11,12 @@
 		</div>
 		<nav class="collapse navbar-collapse" role="navigation">
 			<ul class="nav navbar-nav">
-				{% if site.posts.size >= 1 %}
+				{% if site.categories.statuses.size >= 1 %}
+				<li{% if page.slug == "statuses" %} class="active"{% endif %}>
+					<a href="{{ site.baseurl }}/statuses"><span class="glyphicon glyphicon-road"></span> Estados</a>
+				</li>
+				{% endif %}
+				{% if site.categories.posts.size >= 1 %}
 				<li{% if page.slug == "blog" %} class="active"{% endif %}>
 					<a href="{{ site.baseurl }}/blog"><span class="glyphicon glyphicon-pencil"></span> Blog</a>
 				</li>

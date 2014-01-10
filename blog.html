@@ -7,11 +7,11 @@ slug: blog
   <h1><span class="glyphicon glyphicon-pencil"></span> Blog</h1>
 </div>
 <ul class="list-unstyled">
-  {% for post in site.posts %}
+  {% for post in site.categories.blog %}
 	<li>
 		<h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-		<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.fecha }}</p>
-		<p>{{ post.excerpt }}</p>
+		<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.date | date_to_string }}</p>
+		<p>{{ post.excerpt | markdownify }}</p>
 	</li>
   {% endfor %}
 </ul>

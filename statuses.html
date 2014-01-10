@@ -1,0 +1,16 @@
+---
+layout: default
+title: Estados
+slug: statuses
+---
+<div class="page-header">
+  <h1><span class="glyphicon glyphicon-road"></span> Estados</h1>
+</div>
+<ul class="list-unstyled">
+  {% for post in site.categories.statuses %}
+	<li>
+		<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.date | date_to_string }}</p>
+		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.content }}</a>
+	</li>
+  {% endfor %}
+</ul>

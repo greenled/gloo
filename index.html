@@ -8,32 +8,52 @@ slug: index
 		<h1>Pegotes</h1>
 		<p>Un pastebin realmente sencillo</p>
 		<small class="text-muted">&ndash; Desarrollado por Juan Carlos Mejías Rodríguez (greenLED) &ndash;</small>
-		<div class="row">	
-			<div class="col-md-4">
-				<a href="{{ site.download_zip }}" class="btn btn-block btn-default btn-lg">Descargar código fuente (zip)</a>
-			</div>
-			<div class="col-md-4">
-				<a href="{{ site.download_tar }}" class="btn btn-block btn-default btn-lg">Descargar código fuente (tar)</a>
-			</div>
-			<div class="col-md-4">
-				<a href="{{ site.repo }}" class="btn btn-block btn-default btn-lg">Ver en GitHub</a>
-			</div>
+		<div class="btn-group btn-group-justified">
+			<a href="{{ site.download_zip }}" class="btn btn-block btn-default btn-lg"><span class="hidden-xs hidden-sm">Descargar código fuente </span><span class="glyphicon glyphicon-download visible-xs visible-sm"></span><strong>.zip</strong></a>
+			<a href="{{ site.download_tar }}" class="btn btn-block btn-default btn-lg"><span class="hidden-xs hidden-sm">Descargar código fuente </span><span class="glyphicon glyphicon-download visible-xs visible-sm"></span><strong>.tar</strong></a>
+			<a href="{{ site.repo }}" class="btn btn-block btn-default btn-lg"><span class="hidden-xs hidden-sm">Ver en </span><span class="glyphicon glyphicon-eye-open visible-xs visible-sm"></span><strong>GitHub</strong></a>
 		</div>
 	</div>
 </div>
+<hr/>
 {% include social-follow.html %}
+<hr/>
 {% if site.posts.size >= 1 %}
 <div class="container">
-	<ul class="list-unstyled">
-		{% for post in site.posts limit:2 %}
-		<li>
-			<h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-			<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.fecha }}</p>
-			<p>{{ post.excerpt }}</p>
-		</li>
-		{% endfor %}
-		{% if site.posts.size > 2 %}
-		<a href="{{ site.baseurl }}/blog" class="btn btn-primary">Ver otras entradas</a>
-		{% endif %}
+	<div class="row">	
+			<div class="col-md-4">
+				<div class="page-header">
+					<h2><span class="glyphicon glyphicon-road"></span> Estados</h2>
+				</div>
+				<ul class="list-unstyled">
+					{% for post in site.categories.statuses limit:4 %}
+					<li>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.date | date_to_string }}</p>
+						<a href="{{ site.baseurl }}{{ post.url }}">{{ post.content }}</a>
+					</li>
+					{% endfor %}
+					{% if site.categories.statuses.size > 4 %}
+					<a href="{{ site.baseurl }}/statuses" class="btn btn-default btn-block">Ver estados anteriores</a>
+					{% endif %}
+				</ul>
+			</div>
+			<hr class="visible-xs visible-sm"/>
+			<div class="col-md-8">
+				<div class="page-header">
+					<h2><span class="glyphicon glyphicon-pencil"></span> Blog</h2>
+				</div>
+				<ul class="list-unstyled">
+					{% for post in site.categories.blog limit:2 %}
+					<li>
+						<h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.date | date_to_string }}</p>
+						<p>{{ post.excerpt | markdownify }}</p>
+					</li>
+					{% endfor %}
+					{% if site.categories.posts.size > 2 %}
+					<a href="{{ site.baseurl }}/blog" class="btn btn-default btn-block">Ver posts anteriores</a>
+					{% endif %}
+				</ul>
+			</div>
 </div>
 {% endif %}

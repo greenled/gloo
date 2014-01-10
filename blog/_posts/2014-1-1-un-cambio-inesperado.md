@@ -2,7 +2,6 @@
 layout: post
 title: ﻿Un cambio inesperado
 excerpt: Algo que pensé casi desde el mismo inicio de este proyecto fue su nombre. Inicialmente lo llamé Glue, que viene siendo "pegamento" en inglés y viene bien a un programa para pegar código fuente en la web. Un poco después...
-fecha: 1 de enero de 2013
 ---
 Algo que pensé casi desde el mismo inicio de este proyecto fue su nombre. Inicialmente lo llamé Glue, que viene siendo "pegamento" en inglés y viene bien a un programa para pegar código fuente en la web. Un poco después lo cambié a Gloo, que sonaba igual pero se escribía distinto. Quisiera decir que tuve algún motivo serio para cambiar a Gloo, pero lo cierto es que lo escogí porque me gustó la fonética :).
 
