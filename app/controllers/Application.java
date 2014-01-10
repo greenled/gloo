@@ -20,9 +20,11 @@ package controllers;
 
 import java.io.File;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import models.Pegote;
 import pegotes.PastesManager;
+import play.Play;
 import play.data.Form;
 import play.i18n.Lang;
 import play.libs.F.Option;
@@ -95,20 +97,28 @@ public class Application extends Controller {
 	 * @param key Identificador
 	 */
 	public static Result delete(String key) {
-		PastesManager.delete(key);
-		return ok("Se ha eliminado " + key);
+		List<Object> ips = Play.application().configuration().getList("admin.ips");
+		for (Object ip : ips) {
+			if (request ().remoteAddress ().equals (ip.toString())) {
+				PastesManager.delete(key);
+				return redirect(routes.Application.add());
+			}
+		}
+		return forbidden();
 	}
 
 	/**
 	 * Ejecutar la tarea de limpieza
 	 * @throws UnknownHostException
 	 */
-	public static Result cron () throws UnknownHostException {
-		if (request ().remoteAddress ().equals ( "127.0.0.1" )) {
-			PastesManager.deleteOld ();
-			return redirect(routes.Application.add());
-		} else {
-			return forbidden();
+	public static Result cron () {
+		List<Object> ips = Play.application().configuration().getList("admin.ips");
+		for (Object ip : ips) {
+			if (request ().remoteAddress ().equals (ip.toString())) {
+				PastesManager.deleteOld ();
+				return redirect(routes.Application.add());
+			}
 		}
+		return forbidden();
 	}
 }
