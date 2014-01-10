@@ -31,6 +31,9 @@ import play.mvc.Result;
 public class JsonAPI extends Controller
 {
 
+	/**
+	 * Guardar un pegote
+	 */
 	@BodyParser.Of ( BodyParser.Json.class )
 	public static Result save ()
 	{
@@ -53,6 +56,10 @@ public class JsonAPI extends Controller
 		}
 	}
 
+	/**
+	 * Mostrar un pegote guardado
+	 * @param key Identificador
+	 */
 	@BodyParser.Of ( BodyParser.Json.class )
 	public static Result view ( String key )
 	{

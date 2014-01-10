@@ -25,7 +25,9 @@ import play.mvc.Result;
 
 public class TextAPI extends Controller
 {
-
+	/**
+	 * Guardar un pegote
+	 */
 	@BodyParser.Of ( BodyParser.Text.class )
 	public static Result save ()
 	{
@@ -41,6 +43,10 @@ public class TextAPI extends Controller
 		}
 	}
 
+	/**
+	 * Mostrar un pegote guardado
+	 * @param key Identificador
+	 */
 	@BodyParser.Of ( BodyParser.Text.class )
 	public static Result view ( String key )
 	{

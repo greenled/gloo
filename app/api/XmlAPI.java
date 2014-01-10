@@ -29,7 +29,9 @@ import play.mvc.Result;
 
 public class XmlAPI extends Controller
 {
-
+	/**
+	 * Guardar un pegote
+	 */
 	@BodyParser.Of ( BodyParser.Xml.class )
 	public static Result save ()
 	{
@@ -49,6 +51,10 @@ public class XmlAPI extends Controller
 		}
 	}
 
+	/**
+	 * Mostrar un pegote guardado
+	 * @param key Identificador
+	 */
 	@BodyParser.Of ( BodyParser.Xml.class )
 	public static Result view ( String key )
 	{
@@ -56,8 +62,8 @@ public class XmlAPI extends Controller
 		if ( content.isDefined () ) {
 			return ok ( views.xml.content.render ( content.get () ) );
 		} else {
-			return notFound ( views.xml.message
-					.render ( "No existe un texto con la clave " + key ) );
+			return notFound(views.xml.message
+					.render("No existe un texto con la clave " + key));
 		}
 	}
 }

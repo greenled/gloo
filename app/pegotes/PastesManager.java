@@ -32,11 +32,22 @@ import play.libs.F.Some;
 public class PastesManager {
 	private static String defaultDataDir = "data";
 
+	/**
+	 * Guardar un pegote
+	 * @param key Identificador
+	 * @param content Contenido
+	 * @param ip Número IP de la computadora desde la que se crea el pegote
+	 */
 	public static void save(String key, String content, String ip) {
 		Files.writeFile(getNewPasteFile(key), content);
 		Logger.info("[+][" + key + "][" + ip + "][" + Crypto.sign ( content ) + "]");
 	}
 
+	/**
+	 * Cargar un pegote
+	 * @param key Identificador
+	 * @return el contenido del pegote
+	 */
 	public static Option<String> load(String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined()) {
@@ -58,6 +69,10 @@ public class PastesManager {
 			return new None<List<String>>();
 	}*/
 
+	/**
+	 * Eliminar un pegote
+	 * @param key Identificador
+	 */
 	public static void delete(String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined()) {
@@ -66,6 +81,11 @@ public class PastesManager {
 		}
 	}
 
+	/**
+	 * Obtener el archivo en el que se guarda un pegote
+	 * @param key Identificador
+	 * @return Referencia al archivo del pegote
+	 */
 	public static Option<File> getPasteFile (String key) {
 		File f = new File(getPastesDir().getPath() + File.separator + key);
 		if (f.exists())
@@ -74,6 +94,11 @@ public class PastesManager {
 			return new None<File>();
 	}
 
+	/**
+	 * Obtener un InputStream del archivo en el que se guarda un pegote
+	 * @param key Identificador
+	 * @return InputStream del archivo en el que se guarda un pegote
+	 */
 	public static Option<InputStream> getPasteInputStream (String key) {
 		File f = new File(getPastesDir().getPath() + File.separator + key);
 		if (f.exists())
@@ -82,20 +107,38 @@ public class PastesManager {
 			return new None<InputStream>();
 	}
 
+	/**
+	 * Obtener un nuevo archivo para guardar un pegote
+	 * @param key Identificador
+	 * @return Referencia al archivo
+	 */
 	public static File getNewPasteFile (String key) {
 		return new File(getPastesDir().getPath() + File.separator + key);
 	}
 
+	/**
+	 * Obtener una referencia la ubicación del directorio donde se guardan los pegotes
+	 * @return Referencia al directorio
+	 */
 	public static File getPastesDir () {
 		return Play.application().getFile(Play.application().configuration().getString("data.dir", defaultDataDir));
 	}
 
+	/**
+	 * Comprobar si un identificador está disponible
+	 * @param key Identificador
+	 * @return Si está disponible o no
+	 */
 	public static boolean isKeyAviable (String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined()) return false;
 		return true;
 	}
 
+	/**
+	 * Obtener un identificador disponible
+	 * @return Identificador
+	 */
 	public static String getAviableKey ()
 	{
 		String key = KeyGenerator.getNewKey();
@@ -105,6 +148,9 @@ public class PastesManager {
 		return key;
 	}
 
+	/**
+	 * Eliminar todos los pegotes incluyendo el directorio en que se guardan
+	 */
 	public static void deleteAll ()
 	{
 		File f = getPastesDir();
@@ -118,6 +164,9 @@ public class PastesManager {
         }
 	}
 
+	/**
+	 * Eliminar todos los pegotes antiguos
+	 */
 	public static void deleteOld ()
 	{
 		Logger.info("[c][started]");

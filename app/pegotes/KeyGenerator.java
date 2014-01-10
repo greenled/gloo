@@ -21,12 +21,16 @@ import java.util.UUID;
 
 public class KeyGenerator {
 
+	/**
+	 * Obtener un nuevo identificador aleatorio
+	 * @return el nuevo identificador aleatorio
+	 */
 	public static String getNewKey() {
 		/*
 		 * Esto es para probar con un espacio de claves de {0,1}
 		 * return (new Date().getTime()%2) + "";
 		 */
-		
+
 		return UUID.randomUUID().toString();
 	}
 

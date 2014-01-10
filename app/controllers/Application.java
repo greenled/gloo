@@ -36,10 +36,16 @@ import views.html.view;
 public class Application extends Controller {
 	private static Form<Paste> pasteForm = Form.form(Paste.class);
 
+	/**
+	 * Mostrar formulario para crear un nuevo pegote
+	 */
 	public static Result add() {
         return ok(add.render(pasteForm));
     }
 
+	/**
+	 * Guardar un pegote
+	 */
 	public static Result save() {
 		Form<Paste> filledForm = pasteForm.bindFromRequest();
 		if(filledForm.hasErrors()) {
@@ -52,6 +58,10 @@ public class Application extends Controller {
     	}
 	}
 
+	/**
+	 * Mostrar un pegote guardado
+	 * @param key Identificador
+	 */
 	public static Result view(String key) {
 		Option<String> content = PastesManager.load(key);
 		if (content.isDefined())
@@ -60,6 +70,10 @@ public class Application extends Controller {
 			return notFound(notFound.render());
 	}
 
+	/**
+	 * Descargar un pegote guardado
+	 * @param key Identificador
+	 */
 	public static Result raw(String key) {
 		Option<File> f = PastesManager.getPasteFile(key);
 		if (f.isDefined())
@@ -68,20 +82,31 @@ public class Application extends Controller {
 			return notFound(notFound.render());
 	}
 
+	/**
+	 * Mostrar página de ayuda
+	 */
 	public static Result info () {
 		Lang pref = Lang.preferred(request ().acceptLanguages ());
 		return ok(info.render(pref));
 	}
 
+	/**
+	 * Eliminar un pegote
+	 * @param key Identificador
+	 */
 	public static Result delete(String key) {
 		PastesManager.delete(key);
 		return ok("Se ha eliminado " + key);
 	}
 
+	/**
+	 * Ejecutar la tarea de limpieza
+	 * @throws UnknownHostException
+	 */
 	public static Result cron () throws UnknownHostException {
 		if (request ().remoteAddress ().equals ( "127.0.0.1" )) {
 			PastesManager.deleteOld ();
-			return redirect ( routes.Application.add () );
+			return redirect(routes.Application.add());
 		} else {
 			return forbidden();
 		}
