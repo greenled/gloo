@@ -21,7 +21,7 @@ package controllers;
 import java.io.File;
 import java.net.UnknownHostException;
 
-import models.Paste;
+import models.Pegote;
 import pegotes.PastesManager;
 import play.data.Form;
 import play.i18n.Lang;
@@ -34,24 +34,24 @@ import views.html.notFound;
 import views.html.view;
 
 public class Application extends Controller {
-	private static Form<Paste> pasteForm = Form.form(Paste.class);
+	private static Form<Pegote> pegoteForm = Form.form(Pegote.class);
 
 	/**
 	 * Mostrar formulario para crear un nuevo pegote
 	 */
 	public static Result add() {
-        return ok(add.render(pasteForm));
+        return ok(add.render(pegoteForm));
     }
 
 	/**
 	 * Guardar un pegote
 	 */
 	public static Result save() {
-		Form<Paste> filledForm = pasteForm.bindFromRequest();
+		Form<Pegote> filledForm = pegoteForm.bindFromRequest();
 		if(filledForm.hasErrors()) {
     		return badRequest(add.render(filledForm));
     	} else {
-    		Paste paste = pasteForm.bindFromRequest().get();
+    		Pegote paste = pegoteForm.bindFromRequest().get();
     		String key = PastesManager.getAviableKey ();
     		PastesManager.save(key, paste.content, request ().remoteAddress ());
         	return redirect(routes.Application.view(key));

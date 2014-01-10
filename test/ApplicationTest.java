@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import models.Paste;
+import models.Pegote;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.*;
@@ -31,7 +31,7 @@ import static org.fest.assertions.Assertions.*;
 public class ApplicationTest {
 	@Test
 	public void add_renders_correctly() {
-		Form<Paste> pasteForm = Form.form(Paste.class);
+		Form<Pegote> pasteForm = Form.form(Pegote.class);
     	Content html = views.html.add.render(pasteForm);
     	assertThat(contentType(html)).isEqualTo("text/html");
 	}
