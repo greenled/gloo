@@ -100,8 +100,11 @@ public class Application extends Controller {
 		List<Object> ips = Play.application().configuration().getList("admin.ips");
 		for (Object ip : ips) {
 			if (request ().remoteAddress ().equals (ip.toString())) {
-				PastesManager.delete(key);
-				return redirect(routes.Application.add());
+				boolean deleted = PastesManager.delete(key);
+				if (deleted)
+					return redirect(routes.Application.add());
+				else
+					return notFound(notFound.render());
 			}
 		}
 		return forbidden();

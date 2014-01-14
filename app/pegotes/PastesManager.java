@@ -73,12 +73,14 @@ public class PastesManager {
 	 * Eliminar un pegote
 	 * @param key Identificador
 	 */
-	public static void delete(String key) {
+	public static boolean delete(String key) {
 		Option<File> f = getPasteFile(key);
 		if (f.isDefined()) {
 			f.get().delete();
 			Logger.info("[-][" + key + "]");
+			return true;
 		}
+		return false;
 	}
 
 	/**
