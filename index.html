@@ -26,13 +26,13 @@ slug: index
 				<h2><span class="glyphicon glyphicon-road"></span> Estados</h2>
 			</div>
 			<ul class="list-unstyled">
-				{% for post in site.categories.statuses limit:4 %}
+				{% for post in site.categories.statuses limit:6 %}
 				<li>
 					<p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> {{ post.date | date_to_string }}</p>
 					<a href="{{ site.baseurl }}{{ post.url }}">{{ post.content }}</a>
 				</li>
 				{% endfor %}
-				{% if site.categories.statuses.size > 4 %}
+				{% if site.categories.statuses.size > 6 %}
 				<a href="{{ site.baseurl }}/statuses" class="btn btn-default btn-block">Ver estados anteriores</a>
 				{% endif %}
 			</ul>
