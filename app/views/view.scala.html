@@ -19,7 +19,7 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 @import play.i18n._
 
 @main(key) {
-	<pre class="prettyprint linenums">@content</pre>
+	<pre class="prettyprint linenums" id="content">@content</pre>
 }{
 	<div class="list-group">
 		<a class="list-group-item" href="@routes.Application.raw(key)" ><span class="glyphicon glyphicon-download-alt icon-download"></span> <strong>[S]</strong> @Messages.get("buttons.download")</a>

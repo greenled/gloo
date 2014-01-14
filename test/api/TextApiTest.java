@@ -4,18 +4,11 @@ import static org.fest.assertions.Assertions.assertThat;
 import static play.mvc.Http.HeaderNames.CONTENT_TYPE;
 import static play.test.Helpers.*;
 
-import java.io.StringReader;
-
-
 import org.junit.Before;
 import org.junit.Test;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 import pegotes.PastesManager;
 import play.libs.WS;
-import play.libs.XML;
-import play.libs.XPath;
 import play.libs.F.Promise;
 import play.mvc.Result;
 

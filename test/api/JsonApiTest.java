@@ -4,20 +4,14 @@ import static org.fest.assertions.Assertions.assertThat;
 import static play.mvc.Http.HeaderNames.CONTENT_TYPE;
 import static play.test.Helpers.*;
 
-import java.io.StringReader;
-
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Before;
 import org.junit.Test;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 import pegotes.PastesManager;
 import play.libs.Json;
 import play.libs.WS;
-import play.libs.XML;
 import play.libs.F.Promise;
 import play.mvc.Result;
 
@@ -32,7 +26,7 @@ public class JsonApiTest {
 	}
 
 	@Test
-	public void saveActionRespondsBadRequestOnNonXMLContentType() {
+	public void saveActionRespondsBadRequestOnNonJSONContentType() {
 		running(fakeApplication(), new Runnable() {
 			public void run() {
 				Result result = route(fakeRequest(POST, "/api/json/"));
