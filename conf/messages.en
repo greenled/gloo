@@ -9,5 +9,7 @@ buttons.save=Paste it!
 buttons.download=Download
 buttons.add=New
 buttons.help=Help
+buttons.delete=Delete
+buttons.cron=Cleanning
 
 error.required=Your pegote can not be empty

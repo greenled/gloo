@@ -9,5 +9,7 @@ buttons.save=¡Pégalo!
 buttons.download=Descargar
 buttons.add=Nuevo
 buttons.help=Ayuda
+buttons.delete=Eliminar
+buttons.cron=Limpieza
 
 error.required=Tu pegote no puede estar vacío

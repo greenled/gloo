@@ -24,7 +24,11 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 	<div class="list-group">
 		<a class="list-group-item" href="@routes.Application.raw(key)" ><span class="glyphicon glyphicon-download-alt icon-download"></span> <strong>[S]</strong> @Messages.get("buttons.download")</a>
 		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> @Messages.get("buttons.add")</a>
-		<a href="@routes.Application.info()" class="list-group-item"><span class="glyphicon glyphicon-question-sign icon-help"></span> <strong>[I]</strong> @Messages.get("buttons.help")</a>
+		@adminsZone {
+			<a href="@routes.Application.delete(key)" class="list-group-item"><span class="glyphicon glyphicon-remove icon-delete"></span> <strong>[D]</strong> @Messages.get("buttons.delete")</a>
+			<a href="@routes.Application.cron()" class="list-group-item"><span class="glyphicon glyphicon-cog icon-cron"></span> <strong>[R]</strong> @Messages.get("buttons.cron")</a>
+		}
+		<a href="@routes.Application.info()" class="list-group-item"><span class="glyphicon glyphicon-question-sign icon-help"></span> <strong>[H]</strong> @Messages.get("buttons.help")</a>
 	</div>
 }(){
 	<script>
@@ -32,7 +36,11 @@ along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 			window.prettyPrint && prettyPrint();
 			$.ctrl('S', function() {location = "@routes.Application.raw(key)";});
 			$.ctrl('N', function() {location = "@routes.Application.add()";});
-			$.ctrl('I', function() {location = "@routes.Application.info()";});
+			$.ctrl('H', function() {location = "@routes.Application.info()";});
+			@adminsZone {
+				$.ctrl('D', function() {location = "@routes.Application.delete(key)";});
+				$.ctrl('R', function() {location = "@routes.Application.cron()";});
+			}
 		});
 	</script>
 }
