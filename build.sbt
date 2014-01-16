@@ -22,3 +22,9 @@ maintainer := "Juan Carlos Mejías Rodríguez <juan.mejias@reduc.edu.cu>"
 packageSummary := "Un pastebin realmente sencillo escrito en Java"
 
 packageDescription := "Hecho con el framework web Play!. Ofrece tres APIs: Xml, Json, y texto plano."
+
+linuxPackageMappings in Debian <+= (name in Universal, sourceDirectory in Debian) map { (name, dir) =>
+  (packageMapping(
+    (dir / "changelog") -> "/usr/share/doc/pegotes/changelog.Debian.gz"
+  ) withUser "root" withGroup "root" withPerms "0644" gzipped) asDocs()
+}
