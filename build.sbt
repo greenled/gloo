@@ -28,3 +28,9 @@ linuxPackageMappings in Debian <+= (name in Universal, sourceDirectory in Debian
     (dir / "changelog") -> "/usr/share/doc/pegotes/changelog.Debian.gz"
   ) withUser "root" withGroup "root" withPerms "0644" gzipped) asDocs()
 }
+
+linuxPackageMappings in Debian <+= (name in Universal, sourceDirectory in Debian) map { (name, dir) =>
+  (packageMapping(
+    (dir / "manpage") -> "/usr/share/man/man1/pegotes.1.gz"
+  ) withUser "root" withGroup "root" withPerms "0644" gzipped) asDocs()
+}

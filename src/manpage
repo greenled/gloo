@@ -1,0 +1,13 @@
+.\"Created with GNOME Manpages Editor Wizard
+.\"http://sourceforge.net/projects/gmanedit2
+.TH pegotes 1 "Enero 15, 2014" "" "Pegotes"
+
+.SH NOMBRE
+pegotes \- un pastebin realmente sencillo
+
+.SH SINOPSIS
+.B pegotes
+
+.SH DESCRIPCION
+.B pegotes
+es un pastebin creado con el objetivo de  generar un tráfico de red mínimo.
