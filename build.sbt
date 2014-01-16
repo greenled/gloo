@@ -31,6 +31,12 @@ linuxPackageMappings in Debian <+= (name in Universal, sourceDirectory in Debian
 
 linuxPackageMappings in Debian <+= (name in Universal, sourceDirectory in Debian) map { (name, dir) =>
   (packageMapping(
+    (dir / "copyright") -> "/usr/share/doc/pegotes/copyright"
+  ) withUser "root" withGroup "root" withPerms "0644") asDocs()
+}
+
+linuxPackageMappings in Debian <+= (name in Universal, sourceDirectory in Debian) map { (name, dir) =>
+  (packageMapping(
     (dir / "manpage") -> "/usr/share/man/man1/pegotes.1.gz"
   ) withUser "root" withGroup "root" withPerms "0644" gzipped) asDocs()
 }
