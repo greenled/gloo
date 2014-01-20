@@ -71,18 +71,23 @@ $(document).ready(function() {
 
 /**
  * A solution for resize textarea, just put the window size
- * into the textarea and wait for the event resize.
+ * into the textarea and wait for the resize event.
  *
  */
 var RefreshArea = function() {
     var ra = this,
         $text = $('.form-control'),
+        $sidebar = $('.sidebar-2'),
         $win = $(window),
-        winh = 0;
+        hconst = 38;
 
     ra.changeSize = function() {
-        winh = $win.height() -38;
-        $text.css('height', winh+'px');
+        if($win.width() < 992) {
+            $text.css('height', $win.height()- hconst - ($sidebar.height()+20) +'px');
+
+        } else
+            $text.css('height', $win.height()- hconst +'px');
+
     }
 
     ra.ini = function() {
