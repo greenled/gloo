@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
-update-rc.d pegotesd defaults
+#update-rc.d pegotesd defaults
+
+update-rc.d pegotesd start 20 2 3 4 5 . stop 80 0 1 6 .
 
 service pegotesd start
