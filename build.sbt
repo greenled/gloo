@@ -23,7 +23,7 @@ packageSummary := "Un pastebin realmente sencillo escrito en Java"
 
 packageDescription := "Hecho con el framework web Play!. Ofrece tres APIs: Xml, Json, y texto plano."
 
-debianPackageDependencies in Debian := Seq("default-jre")
+debianPackageDependencies in Debian := Seq("openjdk-7-jre | openjdk-6-jre")
 
 debianMaintainerScripts <+= (sourceDirectory in Debian) map { (dir) =>
   (
