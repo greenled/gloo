@@ -99,4 +99,8 @@ $ chmod +x start
 $ ./start
 ```
 
-Esto iniciará el servidor de la aplicación. Una vez iniciado podrás utilizar la aplicación accediendo a [localhost](http://localhost:9000)
+Esto iniciará el servidor de la aplicación. Una vez iniciado podrás utilizar la aplicación accediendo a [localhost por el puerto 9000](http://localhost:9000)
+
+## Copyright
+
+Pegotes es desarrollado por Juan Carlos Mejías Rodríguez <juan.mejias@reduc.edu.cu> y otros colaboradores. Para más información lee el archivo COPYING.
