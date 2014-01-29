@@ -26,7 +26,6 @@ import models.Pegote;
 import pegotes.PastesManager;
 import play.Play;
 import play.data.Form;
-import play.i18n.Lang;
 import play.libs.F.Option;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -88,8 +87,7 @@ public class Application extends Controller {
 	 * Mostrar página de ayuda
 	 */
 	public static Result info () {
-		Lang pref = Lang.preferred(request ().acceptLanguages ());
-		return ok(info.render(pref));
+		return ok(info.render());
 	}
 
 	/**

@@ -15,12 +15,28 @@ You should have received a copy of the GNU Affero General Public License
 along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
 *@
 
-@(implicit lang: play.api.i18n.Lang)
+@import play.i18n._
 
-@{lang match {
-        case Lang("en",_) => info_en()
-	case Lang("fr",_) => info_fr()
-	case Lang("it",_) => info_it()
-	case Lang("ru",_) => info_ru()
-        case _ => info_es()
-}}
+@main(Messages.get("help.title")) {
+<h2>@Messages.get("help.about")</h2>
+<p>@Messages.get("help.whatis")</p>
+<h2>@Messages.get("help.shortcuts")</h2>
+<ul class="list-unstyled">
+	<li>[<b>Crtl + H</b>] @Messages.get("help.help")</li>
+	<li>[<b>Crtl + N</b>] @Messages.get("help.newPegote")</li>
+	<li>[<b>Crtl + S</b>] <small>(@Messages.get("help.creating"))</small> @Messages.get("help.save")</li>
+	<li>[<b>Crtl + S</b>] <small>(@Messages.get("help.viewing"))</small> @Messages.get("help.download")</li>
+</ul>
+<h2>@Messages.get("help.license")</h2>
+<p>@Html(Messages.get("help.licenceText"))</p>
+}{
+	<div class="list-group">
+		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> @Messages.get("buttons.add")</a>
+	</div>
+}(){
+	<script>
+		$(document).ready(function() {
+			$.ctrl('N', function() {location = "@routes.Application.add()";});
+		});
+	</script>
+}

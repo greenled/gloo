@@ -13,3 +13,16 @@ buttons.delete=Rimuovere
 buttons.cron=Lulizia
 
 error.required=Il tuo pegote non può essere vuoto
+
+help.title=Aiuto
+help.help=Aiuto
+help.about=Circa
+help.whatis=Pegotes è un pastebin. Esso consente di salvare un pezzo di codice temporanea e condividere con altre persone.
+help.shortcuts=Scorciatoie da tastiera
+help.newPegote=Nuovo pegote
+help.creating=quando si aggiunge un pegote
+help.viewing=quando si aggiunge un pegote
+help.save=Salvare
+help.download=Scarica
+help.license=Licenza
+help.licenceText=Pegotes è un software liber. Si può ottenere di codice sorgente da <a href="http://greenled.licenciagithub.io/gloo">sito web del progetto</a>.
