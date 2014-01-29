@@ -6,9 +6,16 @@ Pegotes es un pastebin hecho con el objetivo de generar un tráfico de red míni
 
 Además de las funciones básicas de cualquier pastebin (guardar texto y asociarlo a una URL a través de una interfaz gráfica), Pegotes agrega las siguientes (*por ahora*):
 
+### APIs
+
 - **API Xml**
 - **API Json**
 - **API texto plano**
+
+### Interfaz gráfica
+
+- **Adaptable a distintas resoluciones de pantalla: desde móviles hasta PCs**
+- **Disponible en español, inglés, francés, alemán, portugués, ruso, italiano y esperanto**
 
 ## Feedback
 
