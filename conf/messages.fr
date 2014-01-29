@@ -1,0 +1,15 @@
+add.title=Nouveau pegote
+add.privacy=Place ton pegote ici. AVERTISSEMENT: Cette pegote est dans le domaine public.
+
+notFound.title=Pas trouvé
+notFound.message=Vous cherchez quelque chose qui n'existe pas
+notFound.addNew=Créer un nouveau pegote
+
+buttons.save=Collez-le!
+buttons.download=Télécharger
+buttons.add=Nouveau
+buttons.help=Aide
+buttons.delete=Supprimer
+buttons.cron=Nettoyage
+
+error.required=Votre pegote ne peut pas être vide
