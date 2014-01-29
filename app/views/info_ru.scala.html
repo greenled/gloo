@@ -1,0 +1,42 @@
+@*
+This file is part of Pegotes.
+
+Pegotes is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Pegotes is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Pegotes.  If not, see <http://www.gnu.org/licenses/>.
+*@
+
+@import play.i18n._
+
+@main("Помогите") {
+<h2>около</h2>
+<p>Pegotes является pastebin. Это позволяет временно сохранить кусок кода и поделиться им с другими людьми.</p>
+<h2>Сочетания клавиш</h2>
+<ul class="list-unstyled">
+	<li>[<b>Crtl + H</b>] Ayuda</li>
+	<li>[<b>Crtl + N</b>] Nuevo pegote</li>
+	<li>[<b>Crtl + S</b>] <small>(При создании pegote)</small> экономить</li>
+	<li>[<b>Crtl + S</b>] <small>(когда вы видите pegote)</small> скачать</li>
+</ul>
+<h2>лицензия</h2>
+<p>Pegotes свободное программное обеспечение. <a href="http://greenled.github.io/gloo">Вы можете скачать исходный код с сайта проекта.<a/>.</p>
+}{
+	<div class="list-group">
+		<a id="add-btn" class="list-group-item" href="@routes.Application.add()" ><span class="glyphicon glyphicon-plus icon-add"></span> <strong>[N]</strong> @Messages.get("buttons.add")</a>
+	</div>
+}(){
+	<script>
+		$(document).ready(function() {
+			$.ctrl('N', function() {location = "@routes.Application.add()";});
+		});
+	</script>
+}
