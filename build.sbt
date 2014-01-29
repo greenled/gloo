@@ -3,7 +3,7 @@ import com.typesafe.sbt.packager.Keys._
 
 name := "Pegotes"
 
-version := "1.0-SNAPSHOT"
+version := "1.0-SNAPSHOT-2"
 
 libraryDependencies ++= Seq(
 	filters
