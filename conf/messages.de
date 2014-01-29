@@ -1,0 +1,28 @@
+add.title=Neues pegote
+add.privacy=Legen Sie Ihren Computer hier. WARNUNG: Dieser Computer ist in der Public Domain.
+
+notFound.title=Nicht gefunden
+notFound.message=Sie sind für etwas, das nicht existiert Suche
+notFound.addNew=Neues pegote
+
+buttons.save=Halten Sie es!
+buttons.download=Herunterladen
+buttons.add=Neu
+buttons.help=Hilfe
+buttons.delete=Entfernen
+buttons.cron=Reinigung
+
+error.required=Ihr Computer kann nicht leer sein
+
+help.title=Über
+help.help=Über
+help.about=Über
+help.whatis=Computer ist ein pastebin. Es ermöglicht Ihnen, ein Stück Code temporär speichern und teilen es mit anderen Menschen.
+help.shortcuts=Tastenkombinationen
+help.newPegote=Neues pegote
+help.creating=Wenn Sie einen Computer erstellen
+help.viewing=wenn Sie einen Computer sehen
+help.save=Sparen
+help.download=Herunterladen
+help.license=Lizenz
+help.licenceText=Der Computer ist Freie Software. Sie können den Quellcode von <a href="http://greenled.github.io/gloo">der Projektseite herunterladen</a>.
