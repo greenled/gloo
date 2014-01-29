@@ -45,6 +45,12 @@ debianMaintainerScripts <+= (sourceDirectory in Debian) map { (dir) =>
 
 linuxPackageMappings in Debian <+= (sourceDirectory in Debian) map { (dir) =>
   (packageMapping(
+    (dir / "README.Debian") -> "/usr/share/doc/pegotes/README.Debian.gz"
+  ) withUser "root" withGroup "root" withPerms "0644" gzipped) asDocs()
+}
+
+linuxPackageMappings in Debian <+= (sourceDirectory in Debian) map { (dir) =>
+  (packageMapping(
     (dir / "changelog") -> "/usr/share/doc/pegotes/changelog.Debian.gz"
   ) withUser "root" withGroup "root" withPerms "0644" gzipped) asDocs()
 }
