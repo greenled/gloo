@@ -1,0 +1,28 @@
+add.title=nova pegote
+add.privacy=Metu vian pegoten tie. AVERTO: Tiu pegote estas en la publika domajno.
+
+notFound.title=Ne trovita
+notFound.message=Vi serĉas ion, kio ne ekzistas
+notFound.addNew=Krei novan pegote
+
+buttons.save=Trae!
+buttons.download=Elŝutu
+buttons.add=Novaj
+buttons.help=Helpu
+buttons.delete=Forigi
+buttons.cron=Pureco
+
+error.required=Via pegote ne povas esti malplena
+
+help.title=Helpu
+help.help=Helpu
+help.about=Pri
+help.whatis=Pegotes estas pastebin. Ĝi permesas vin portempe konservi koderon kaj dividi ĝin kun aliaj homoj.
+help.shortcuts=Klavkomandojn
+help.newPegote=kiam vi kreas pegote
+help.creating=kiam vi vidas pegote
+help.viewing=viendo un pegote
+help.save=Konservi
+help.download=Elŝutu
+help.license=Permesilo
+help.licenceText=Pegotes estas Libera Programaro. Vi povas elŝuti la fontkodon de <a href="http://greenled.github.io/gloo">la projekto ejo</a>.
