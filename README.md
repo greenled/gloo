@@ -81,7 +81,7 @@ El próximo paso es compilar Pegotes. Para eso abre una terminal en el directori
 ```bash
 $ play dist
 ```
-El comando anterior creará un archivo `Pegotes-1.0-SNAPSHOT.zip` dentro del directorio `target` relativo al directorio del proyecto. Este archivo contiene la aplicación compilada y lista para ejecutar.
+El comando anterior creará un archivo `Pegotes-1.0-SNAPSHOT.zip` dentro del directorio `target/universal` relativo al directorio del proyecto. Este archivo contiene la aplicación compilada y lista para ejecutar.
 
 ### 5 - Ejecutar la aplicación
 
