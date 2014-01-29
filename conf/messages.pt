@@ -1,0 +1,28 @@
+add.title=Novo pegote
+add.privacy=Coloque o seu pegote aqui. AVISO: Este pegote é de domínio público.
+
+notFound.title=Não foi encontrado
+notFound.message=Você está procurando por algo que não existe
+notFound.addNew=Criar um novo pegote
+
+buttons.save=Cole-o!
+buttons.download=Baixar
+buttons.add=Novo
+buttons.help=Ajuda
+buttons.delete=Remover
+buttons.cron=Limpeza
+
+error.required=O seu pegote não pode ser vazio
+
+help.title=Ajuda
+help.help=Ajuda
+help.about=Sobre
+help.whatis=Pegotes é um pastebin. Ele permite que você salve temporariamente um pedaço de código e compartilhá-lo com outras pessoas.
+help.shortcuts=Atalhos de teclado
+help.newPegote=Novo pegote
+help.creating=quando você cria um pegote
+help.viewing=quando você vê um pegote
+help.save=Salvar
+help.download=Baixar
+help.license=Licença
+help.licenceText=Pegotes é um Software Livre. Você pode baixar o código fonte a partir do <a href="http://greenled.github.io/gloo">site do projeto</a>.
