@@ -13,6 +13,8 @@ exclude:          [.gitignore]
 repo:             https://github.com/greenled/gloo
 download_zip:     https://github.com/greenled/gloo/zipball/master
 download_tar:     https://github.com/greenled/gloo/tarball/master
+download_bin_debian: http://sourceforge.net/projects/pegotes/files/pegotes-1.0-SNAPSHOT.deb/download
+download_bin_standalone: http://sourceforge.net/projects/pegotes/files/Pegotes-1.0-SNAPSHOT.zip/download
 
 final_url:        http://greenled.github.io/gloo
 twitter:          http://www.twitter.com/greenled2013
