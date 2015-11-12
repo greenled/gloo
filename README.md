@@ -1,5 +1,7 @@
 # Pegotes - Un pastebin realmente sencillo
 
+[![Build Status](https://drone.io/github.com/greenled/gloo/status.png)](https://drone.io/github.com/greenled/gloo/latest)
+
 Pegotes es un pastebin hecho con el objetivo de generar un tráfico de red mínimo. Para lograrlo, ofrece una interfaz gráfica liviana y varias APIs que permiten acceder al servicio sin necesidad de una interfaz gráfica.
 
 ## Funciones
